@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>coinselect - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">coinselect</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".coinselect"><span class="type-signature">(async, static) </span>coinselect<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>|Array.&lt;Object>|Array.&lt;Object>|number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_coinselect.js.html">src/coinselect.js</a>, <a href="src_coinselect.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Given a set of target addresses where the user wants to send some bitcoin,
+it selects a subset of utxos so that the targets are funded.</p>
+<p>This function is basically a wrapper of excellent
+<a href="https://github.com/bitcoinjs/coinselect">bitcoinjs-lib/coinselect lib</a>
+adding Segwit support and automatically detecting if the user wants to send
+max-funds to an address.</p>
+<p>It builds on ideas from <a href="https://github.com/BlueWallet/BlueWallet/">Bluewallet</a>'s
+coinselect for Segwit support.</p>
+<p>Pass only one target with empty value to send all utxos funds (except fee) to
+the target's address.</p>
+<p>Pass a <code>changeAddress</code> callback in case it's needed.</p>
+<p>Read the issues below to understand some of the decissions on the
+<code>{script:{length}}</code> pieces of code in the implementation:</p>
+<ul>
+<li><a href="https://github.com/BlueWallet/BlueWallet/issues/4352#issuecomment-1102307443">https://github.com/BlueWallet/BlueWallet/issues/4352#issuecomment-1102307443</a></li>
+<li><a href="https://github.com/bitcoinjs/coinselect/issues/69">https://github.com/bitcoinjs/coinselect/issues/69</a></li>
+<li><a href="https://github.com/BlueWallet/BlueWallet/pull/3810">https://github.com/BlueWallet/BlueWallet/pull/3810</a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>utxos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>List of spendable utxos.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Derivation path. F.ex.: <code>44'/1'/1'/0/0</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The transaction serialized in hex.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The vout index of the tx above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>List of addresses to send funds.
+If <code>targets.length === 1</code>' , and <code>targets[0].value</code> is <code>undefined</code>, then
+all funds will be sent to <code>targets[0].address</code>, while leaving an appropriate
+amount for the fee.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The address to send funds.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of satoshis to send the address above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>feeRate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>satoshis per vbyte. Must be <code>&gt;= 1</code>. It will be rounded up. It is better to pay an extra 0.x satoshi/byte than be under-measuring and miss some cut off for some miner.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>changeAddress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Async callback function that returns a string with a change address where change will go. Might not be called.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A <a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/networks.js">bitcoinjs-lib network object</a>. Default is bitcoin.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>return</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>return.utxos The subset of input utxos selected. Undefined if no solution is found.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>return.targets The input targets plus (if necessary) a new target for the change address. Undefined if no solution is found.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Object></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>return.fee The accumulated fee in vbytes. This is always returned even if no solution was found.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

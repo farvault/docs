@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>src/secp256k1/index.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/secp256k1/index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module secp256k1 */
+const NOBLE_SECP256K1 = 'NOBLE_SECP256K1';
+const ELLIPTIC_SECP256K1 = 'ELLIPTIC_SECP256K1';
+const BITCORE_WASM_SECP256K1 = 'BITCORE_WASM_SECP256K1';
+
+function wasmSupported() {
+  //https://stackoverflow.com/a/47880734/1660381
+  //Do not let it run on react-native (WASM works on the iOS simulator but not
+  //on real device).
+  //It's better to debug in the simulator using the same engine.
+  if (typeof navigator !== 'undefined' &amp;&amp; navigator.product === 'ReactNative')
+    return false;
+  try {
+    if (
+      typeof WebAssembly === 'object' &amp;&amp;
+      typeof WebAssembly.instantiate === 'function'
+    ) {
+      const module = new WebAssembly.Module(
+        Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00)
+      );
+      if (module instanceof WebAssembly.Module)
+        return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
+    }
+  } catch (e) {}
+  return false;
+}
+
+//const secp256k1Engine = NOBLE_SECP256K1;
+const secp256k1Engine = wasmSupported()
+  ? BITCORE_WASM_SECP256K1
+  : typeof BigInt === 'function'
+  ? NOBLE_SECP256K1
+  : ELLIPTIC_SECP256K1;
+
+console.log(`Importing secp256k1 engine: ${secp256k1Engine}.`);
+
+if (secp256k1Engine === ELLIPTIC_SECP256K1) {
+  //We used to make it work installing an alias package:
+  //npm install tiny-secp256k1-v1@npm:tiny-secp256k1@1
+  //and then:
+  //require('tiny-secp256k1-v1/js.js')
+  //But elliptic does not work with ecpair version 2.1 and above
+  //since it does not provide all the functions required by ecpair.
+  //We decided to deprecate its usage
+  throw new Error('Elliptic cannot be used anymore since ecpair 2.1');
+}
+
+const secp256k1 =
+  secp256k1Engine === NOBLE_SECP256K1
+    ? require('./nobleSecp256k1Wrapper.js')
+    : require('tiny-secp256k1');
+module.exports = secp256k1;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

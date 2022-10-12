@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>fees - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">fees</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".feeRateSampling"><span class="type-signature">(static) </span>feeRateSampling<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Return an array of precomputed feeRates within a range.</p>
+<p>It's probably a good idea to keep default values.</p>
+<p>Maybe you only want to change the number of samples.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>minSatsPerByte</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>1</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The minimum fee rate.
+Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
+It should be greater than <code>0</code> and lower than <code>1E6</code>.
+<strong>NOTE</strong>: it doesn't make sense to make it lower than 1 for the mainnet.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxSatsPerByte</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>10000</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The maximum fee rate.
+Default value is <code>10000</code>, which is 10 times larger than 22-dec-2017 fee rates.
+It should be greater than minSatsPerByte and lower than <code>1E6</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>samples</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>100</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The number of samples, that is, the length of the returned array.
+Must be an integer. Default value is <code>100</code>. Accepted values go from <code>2</code> to <code>1E5</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>logScale</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether to use logarithmic (<code>true</code>) or lineal scale (<code>false</code>).
+Default is <code>true</code>, that is to use logarithmic scale to give more granularity to lower fee rates.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of numbers containing the sampled fee rates.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".pickEsploraFeeEstimate"><span class="type-signature">(static) </span>pickEsploraFeeEstimate<span class="signature">(esploraFeeEstimates, targetTime)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line84">line 84</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Pick a fee rate in sats per vbyte, given:</p>
+<ul>
+<li>An Object indexing different fees per number of blocks.
+The Object must match the format as the one returned by
+<a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a>.</li>
+<li>Time to wait (in seconds).</li>
+</ul>
+<p>This method will pick the fee corresponding to the earlier block (not the
+closest one). It's better to assume larger fees. If you set a target of 19
+minutes, then this method returns the feeRate for being mined in 1 block,
+not 2.</p>
+<p>This method assumes 10 minute blocks.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>esploraFeeEstimates</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See the returned value of <a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetTime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of seconds to wait for the tx to be
+accepted.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The fee rate in sats per vbyte.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

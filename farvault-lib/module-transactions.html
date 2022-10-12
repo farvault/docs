@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>transactions - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">transactions</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createMultiFeeTransactions"><span class="type-signature">(async, static) </span>createMultiFeeTransactions<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array.&lt;Promise.&lt;{tx:string, fee:number, feeRate:number}>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_transactions.js.html">src/transactions.js</a>, <a href="src_transactions.js.html#line409">line 409</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Same as <a href="module-transactions.html#.createTransaction">createTransaction</a> but it returns an array of
+transactions for a set of different fees.</p>
+<p>The number of transactions is dictated by <code>feeRateSamplingParams</code>.</p>
+<p>Note that signatures are only validated in the case of <code>minSatsPerByte</code> (see
+<a href="module-fees.html#.feeRateSampling">feeRateSampling</a>).
+If this signature is valid, then we assume the rest of signatures are also
+valid. This is done for performance reasons.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>utxos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>List of spendable utxos.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Derivation path. F.ex.: <code>44'/1'/1'/0/0</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The transaction serialized in hex.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>redeemScript</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The legacy-P2SH script serialized in hex in case the utxo can be redeemed with an unlocking legacy-P2SH script.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>witnessScript</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The witnessScript serialized in hex in case the utxo is a P2WSH or P2SH-P2WSH output. When an utxo has a witnessScript string, this function automatically detects the output type: P2WSH or P2SH-P2WSH.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The vout index of the tx above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>List of addresses to send funds.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The address to send funds.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of satoshis to send the address above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>createSigners</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-HDInterface.html#.createSigners">module:HDInterface.createSigners</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An <strong>async</strong> function that returns an array of signer functions. One for each utxo. Signer functions sign the hash of the transaction.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>feeRateSamplingParams</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Same params as the ones in <a href="module-fees.html#.feeRateSampling">feeRateSampling</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>getPublicKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-HDInterface.html#.getPublicKey">module:HDInterface.getPublicKey</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An <strong>async</strong> function that resolves the public key from a derivation path and the network.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>networks.bitcoin</code>
+                
+                </td>
+            
+
+            <td class="description last"><p><a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/networks.js">bitcoinjs-lib network object</a></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of promises that resolve to transactions in hex, the fee in sats and the feeRate in sats/vbyte</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Promise.&lt;{tx:string, fee:number, feeRate:number}>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".createTransaction"><span class="type-signature">(async, static) </span>createTransaction<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_transactions.js.html">src/transactions.js</a>, <a href="src_transactions.js.html#line269">line 269</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Builds a transaction ready to be broadcasted.</p>
+<p>It assumes that all the utxos of the transaction can be spent using the same
+wallet controlled by this software.
+Targets are expressed as: <code>[{ address, value }]</code>, with value in satoshis.</p>
+<p>Utxos can be standard: P2PKH, P2WPKH, P2WH-P2WPKH. And they can also be
+P2SH, P2SH-P2WSH or P2WSH for FarVault's timelocked utxos.</p>
+<p>For regular P2PKH, P2WPKH, P2SH-P2WPKH utxos, an utxo must have these fields:
+<code>{tx, n, path}</code>, where</p>
+<ul>
+<li><code>tx</code> is a string containing the complete previous transaction in hex</li>
+<li><code>n</code> is the index of the output</li>
+<li><code>path</code> is the BIP-44/49/84 serialized derivation path string that can spend this utxo. F.ex.: <code>44'/1'/1'/0/0</code>.</li>
+</ul>
+<p>For relativeTimeLockScript utxos, the utxo must be:
+<code>{tx, n, path, witnessScript|redeemScript}</code>, where:</p>
+<ul>
+<li><code>tx</code> is a string containing the complete previous transaction in hex</li>
+<li><code>n</code> is the index of the output</li>
+<li><code>path</code> is a BIP84 serialized derivation path that can spend this utxo. F.ex.: <code>84'/1'/1'/0/0</code>. Note that this path may correspond to the rushedPublicKey or the maturedPublicKey. This is checked internally comparing the pubkey of <code>utxo.path</code> with the <code>rushedPublicKey</code> and <code>maturedPublicKey</code> pubkeys extracted from the <code>witnessScript</code>/<code>redeemScript</code>.</li>
+<li><code>witnessScript|redeemScript</code> is the relative timeLock script. The script is internally decompiled to obtain the rushedPublicKey, maturedPublicKey and also the bip68LockTime. Then, it is possible to deduce if this <code>path</code> belongs to the rushedPublicKey or the maturedPublicKey. With that information, the appropriate unlocking script is chosen and added into the transaction. <code>witnessScript</code> is for segwit transactions (P2WSH and P2SH-P2WSH) and <code>redeemScript</code> for P2SH transactions.</li>
+</ul>
+<p>This function validates the utxos in child function <code>createPSBT</code>.</p>
+<p>You must provide the (async) function that gives back the public key of a
+derivationPath.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parameters</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>utxos</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>List of spendable utxos.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Derivation path. F.ex.: <code>44'/1'/1'/0/0</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The transaction serialized in hex.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>redeemScript</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The legacy-P2SH script serialized in hex in case the utxo can be redeemed with an unlocking legacy-P2SH script.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>witnessScript</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The witnessScript serialized in hex in case the utxo is a P2WSH or P2SH-P2WSH output. When an utxo has a witnessScript string, this function automatically detects the output type: P2WSH or P2SH-P2WSH.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>n</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The vout index of the tx above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>List of addresses to send funds.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>address</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The address to send funds.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Number of satoshis to send the address above.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>createSigners</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-HDInterface.html#.createSigners">module:HDInterface.createSigners</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An <strong>async</strong> function that returns an array of signer functions. One for each utxo. Signer functions sign the hash of the transaction.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>getPublicKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-HDInterface.html#.getPublicKey">module:HDInterface.getPublicKey</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An <strong>async</strong> function that resolves the public key from a derivation path and the network.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validateSignatures</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>true</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether you want to validate signatures. This should always be true to detect errors. However, when createMultiFeeTransactions it is ok to only validate one of the transactions (for one of the fees). Signature validation is slow and this helps improving speed when creating a large number of transactions.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>networks.bitcoin</code>
+                
+                </td>
+            
+
+            <td class="description last"><p><a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/networks.js">bitcoinjs-lib network object</a></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A promise that resolves into a transaction string in hex</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~createPSBT"><span class="type-signature">(async, inner) </span>createPSBT<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_transactions.js.html">src/transactions.js</a>, <a href="src_transactions.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Builds a PSBT object ready to be signed.
+It assumes that all the utxos can be spent using this wallet.
+It sends funds to targets, where targets are [{ address, value (in sats) }]</p>
+<p>This is an internal function that separates concerns with
+<a href="module-transactions.html#.createTransaction">createTransaction</a>. Using PSBTs may end up being useful
+when multi-sig is implemented in the future.</p>
+<p>This function validates several things:</p>
+<ul>
+<li>It makes sure that params in a utxo: redeemScript, witnessScript and path
+are compatible.</li>
+<li>It makes sure that if a script is passed in the utxo then this script can be
+spent with the path.</li>
+<li>It makes sure that if a redeemScript is passed, then the utxo corresponds to
+a P2SH</li>
+<li>It makes sure that if a witnessScript is passed, then the utxo corresponds to
+a P2SH (for nested P2SH-P2WSH) or a P2WSH for a native witness script.</li>
+<li>For standard payments it makes sure that the utxo script corresponds to
+the correct BIP-44, BIP-49 or BIP-84 specifications.</li>
+</ul>
+<p>It's only called by createTransaction and tested using createTransaction unit
+tests.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~witnessStackToScriptWitness"><span class="type-signature">(inner) </span>witnessStackToScriptWitness<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_transactions.js.html">src/transactions.js</a>, <a href="src_transactions.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Same utility function, line-by-line, as the one used in bitcoinjs-lib for
+finalizing inputs.</p>
+<p>We must use it to finalize custom FarVault timeLockTransactions.</p>
+<p>Refer to <a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/psbt.js#L1187">bitcoinjs-lib's implementation</a>
+for the details.</p>
+<p>bitcoinjs-lib has it own excellent suite of tests and so it's already been
+thoroughly tested.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>bip44/chain - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">bip44/chain</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getNextDerivationPath"><span class="type-signature">(static) </span>getNextDerivationPath<span class="signature">(params)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_bip44_chain.js.html">src/bip44/chain.js</a>, <a href="src_bip44_chain.js.html#line454">line 454</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>It returns the next receiving derivation path available. If
+<code>isChange === false</code> it returns the next path available to receive
+funds from external addresses. If <code>isChange === false</code> it returns the next
+path available for change.</p>
+<p>Optionally, it omits at least <code>skip</code> addresses to leave the next available
+derivation paths for other uses. The function verifies that <code>skip</code> is less
+than the <code>gapLimit</code>. Otherwise, it throws.</p>
+<p>After omitting <code>skip</code> addresses, it returns the first derivation path
+that is not in the array of <code>prereservedPaths</code>.
+However, it returns the last path before reaching the <code>gapLimit</code> if it is
+reached while omitting <code>prereservedPaths</code>. It returns it anyway, regardless
+of whether it's in the list of <code>prereservedPaths</code> or not. And so
+<code>prereservedPaths</code> is a list of nice-to-omit paths (but not required).</p>
+<p>Motivation for the <code>prereservedPaths</code> and <code>skip</code> parameters:</p>
+<p>You can use this function to get the derivation path that
+will receive the protected funds in a vault after unlocking them.</p>
+<p>The final address that receives the funds after unlock belongs to the
+same original account from which the funds were taken.</p>
+<p>This receiving address is chosen and encoded into a pre-signed transaction
+during the vault creation process. Then this address is
+stored off-chain and it is impossible to know which one it is by looking at
+the blockchain.</p>
+<p>However, this same account can still receive new funds in new addresses.
+Due to the way BIP32 works, it is impossible to reserve the receiving
+addresses used for vaults as they are generated deterministically. And so
+other software wallets handling the same HD seed can unnoticedly end up using
+the receiving address of a vault.</p>
+<p>The best we can do for selecting the vault's receiving addresses is to choose
+a derivation path that is very far down the sequence of derivation paths
+(omitting <code>skip</code> addresses). But we ensure that it will be within the
+<code>gapLimit</code> to ensure that any wallet implementation can still find it.
+Address overlapping can still occur, but this reduces the chances if this
+account is rarely used after funds are locked.</p>
+<p>Another thing to keep in mind is that an account can have multiple vaults
+associated with it. This is handled by passing an array of
+<code>prereservedPaths</code> that correspond to the receiving addresses of these other
+vaults. Then, the software tries not to use these derivation paths if possible.</p>
+<p>Note on address reuse: when address overlapping occurs, funds remain
+completely secure, but <a href="https://en.bitcoin.it/wiki/Address_reuse">privacy may be sligthly reduced</a>.
+This is usually never a problem and this function greatly reduces that
+possibility anyway, even if this doesn't usually matter to the average user.
+If address reuse is really a concern for the user, it can be alleviated by
+increasing <code>gapLimit</code> and <code>skip</code> parameters.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>usedPaths</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An array of strings of used derivation paths.
+It's important to pass used derivation paths (not only the currently funded
+ones). Otherwise this function may end up picking an address used in the past
+compromising the privacy of the user.</p>
+<p><code>usedPaths</code> can contain different purposes (Legacy, Nested or Segwit) and
+different account numbers as well. This is because it is possible to create
+vaults using different accounts if all of them can be spawned from the same
+seed. The software chooses the default receiving account using
+getDefaultAccount. Note that <code>gapLimit</code>
+and <code>gapAccountLimit</code> are checked and enforced for each purpose detected
+in the <code>usedPaths</code> list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether this is a change address or not as described in <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>prereservedPaths</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>Array(0)</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>This array of paths contains
+derivation paths that it would be nice not to choose. However, the software
+does not offer any guarantee that these will not be chosen. Use this array
+to pass derivation paths of other vaults' receiving addresses.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>0</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The number of empty addresses
+left after the next available derivation path. <code>skip = 0</code> tries to use the next
+available one (does leave 0 empty addresses). <code>skip = 19</code> would mean it uses
+the last available address if <code>gapLimit = 20</code>. The <code>skip</code> number is a target
+number. The final number of addresss skiped may be larger if they are in the
+list of <code>prereservedPaths</code> (unless <code>gapLimit</code> is reached).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap limit. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Address_gap_limit">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapAccountLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_ACCOUNT_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap account limit: Number of consecutive unused accounts that can be hit. If the software hits <code>gapAccountLimit</code> unused accounts in a row, it expects there are no used accounts beyond this point.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>networks.bitcoin</code>
+                
+                </td>
+            
+
+            <td class="description last"><p><a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/networks.js">bitcoinjs-lib network object</a></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The next external (receiving) derivation path.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getDefaultAccount"><span class="type-signature">(inner) </span>getDefaultAccount<span class="signature">(params)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_bip44_chain.js.html">src/bip44/chain.js</a>, <a href="src_bip44_chain.js.html#line182">line 182</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Given a set of used derivation paths for the same mnemonic and network, an account
+can be defined as the pair <code>{ purpose, accountNumber }</code>.</p>
+<p>Given a set of derivation paths with used utxos, this function chooses the
+a <strong>default account</strong> pair using this criteria:</p>
+<p>It first selects the purpose used amongst all usedPaths in this order of
+preference: Native Segit &gt; Segwit &gt; Legacy.</p>
+<p>Then, it chooses the largest account number used for the previously selected
+purpose.</p>
+<p><code>gapAccountLimit</code> is checked and enforced for each purpose detected in the list of usedPaths.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>param.usedPaths</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An array usedPaths.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params.gapLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap limit. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Address_gap_limit">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>params.gapAccountLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_ACCOUNT_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap account limit: Number of consecutive unused accounts that can be hit. If the software hits <code>gapAccountLimit</code> unused accounts in a row, it expects there are no used accounts beyond this point.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p><code>{ purpose, accountNumber }</code>.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getLastDerivationPath"><span class="type-signature">(inner) </span>getLastDerivationPath<span class="signature">(params)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_bip44_chain.js.html">src/bip44/chain.js</a>, <a href="src_bip44_chain.js.html#line261">line 261</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Given a set of used derivation paths <code>usedPaths</code> it selects and returns the
+last one that was used to receive change (if <code>isChange === true</code>) or
+the last path that received funds from external addresses if
+<code>isChange === false</code>.</p>
+<p>It returns <code>-1</code> if no paths have been used yet for the passed parameters.</p>
+<p>You don't need to pass the purpose or accountNumber. The function internally
+finds the common purpose or accountNumber among all the derivation paths.</p>
+<p>However, you must explicitly pass an account number if the derivation paths
+that are passed belong to different account numbers.</p>
+<p>In addition, you must specify both a purpose AND an account number if the
+derivation paths passed belong to different purposes. F.ex.: if they belong
+to nested Segwit and legacy addresses.</p>
+<p>Normally purposes and accountNumber are not passed in other wallet libraries.
+We decided to give this option because FarVault allows creating transactions
+with outputs that belong to different purposes and accountNumbers.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>usedPaths</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An non-empty array of used derivation
+paths.
+It's important to pass used derivation paths (not only the currently funded
+ones). Otherwise the privacy of the user can be compromised for address
+reuse.</p>
+<p><code>usedPaths</code> can contain different purposes (Legacy, Nested or Segwit) and
+different account numbers as well. This is because it is possible to create
+vaults using different accounts if all of them can be spawned from the same
+seed. The software chooses the default receiving account using
+getDefaultAccount. Note that <code>gapLimit</code>
+and <code>gapAccountLimit</code> are checked and enforced for each purpose detected
+in the <code>usedPaths</code> list.
+compromising the privacy of the user.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>purpose</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The purpose we want to transform to: LEGACY,
+NATIVE_SEGWIT or NESTED_SEGWIT.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>accountNumber</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The account number as described in <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isChange</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Whether this is a change address or not as described in <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap limit. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Address_gap_limit">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapAccountLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_ACCOUNT_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap account limit: Number of consecutive unused accounts that can be hit. If the software hits <code>gapAccountLimit</code> unused accounts in a row, it expects there are no used accounts beyond this point.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>networks.bitcoin</code>
+                
+                </td>
+            
+
+            <td class="description last"><p><a href="https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/networks.js">bitcoinjs-lib network object</a></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The last derivation path used or -1 if it has not been used yet.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~normalizeDerivationPaths"><span class="type-signature">(inner) </span>normalizeDerivationPaths<span class="signature">(params)</span><span class="type-signature"> &rarr; {Array.&lt;object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_bip44_chain.js.html">src/bip44/chain.js</a>, <a href="src_bip44_chain.js.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Checks if the derivation paths <code>usedPaths</code> meet <code>gapLimit</code> and
+<code>gapAccountLimit</code> restrictions and returns normalized parsed paths.
+That is: parsed, de-duplicated and sorted.</p>
+<p>Detailed explanation:</p>
+<p>Parse an array of serialized used derivation paths (array of strings) and
+returns an array of parsed paths with the following structure:
+<code>[{ purpose, coinType, accountNumber, index, isChange }]</code>.</p>
+<p>It removes duplicated derivation paths and it throws if
+derivation paths do not respect the gap limit or the gap account limit.</p>
+<p>In addition, derivation paths are sorted in this order: <code>coinType, purpose, accountNumber, isChange, index</code>.</p>
+<p>This means it orders all derivation paths by <code>coinType</code> in
+ascending order (Bitcoin=0, Testnet=1), but if some have the same <code>coinType</code>
+then it sorts them by <code>purpose</code> in ascending order (LEGACY=44,
+NESTED_SEGWIT=49, NATIVE_SEGWIT=849), but if some have the same <code>purpose</code> it
+sorts them by <code>isChange</code> order (isChange=false, isChange=true), but if some
+have the same <code>isChange</code> it sorts them by <code>index</code>.</p>
+<p>Behaviour is similar to SQL <code>ORDER BY</code> keyworkd with several columns.</p>
+<p>Note that <code>usedPaths</code> elements may have been written using different formatting
+options. For example:</p>
+<pre class="prettyprint source"><code>[&quot;84’/0’/0’/0/0&quot;, &quot;m/84'/0'/0'/0/0&quot;, &quot;M/84'/0'/0'/0/0&quot;, &quot;84H/0H/0H/0/0&quot;]
+</code></pre>
+<p>This function is able to correctly parse all of them.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>params</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>usedPaths</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>An array of used derivation paths.</p>
+<p><code>usedPaths</code> can contain different purposes (Legacy, Nested or Segwit) and
+different account numbers as well. This is because it is possible to create
+vaults using different accounts if all of them can be spawned from the same
+seed. The software chooses the default receiving account using
+getDefaultAccount. Note that <code>gapLimit</code>
+and <code>gapAccountLimit</code> are checked and enforced for each purpose detected
+in the <code>usedPaths</code> list.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap limit. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Address_gap_limit">BIP44</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gapAccountLimit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>GAP_ACCOUNT_LIMIT</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>The gap account limit: Number of consecutive unused accounts that can be hit. If the software hits <code>gapAccountLimit</code> unused accounts in a row, it expects there are no used accounts beyond this point.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>An array of used parsed derivation paths without duplicates and
+sorted in this order: coinType, purpose, accountNumber, isChange, index ASC.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>src/fees.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault" target="_blank" class="menu-item" id="repository" >Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-dataFetchers.html">dataFetchers</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchAddress">blockstreamFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchFeeEstimates">blockstreamFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.blockstreamFetchUtxos">blockstreamFetchUtxos</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchAddress">esploraFetchAddress</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchFeeEstimates">esploraFetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-dataFetchers.html#.esploraFetchUtxos">esploraFetchUtxos</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickEsploraFeeEstimate">pickEsploraFeeEstimate</a></li></ul></li><li><a href="module-HDInterface.html">HDInterface</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface.html#.initHDInterface">initHDInterface</a></li></ul></li><li><a href="module-HDInterface_ledgerNano.html">HDInterface/ledgerNano</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#.createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="module-HDInterface_ledgerNano.html#~getUtxoSequence">getUtxoSequence</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-secp256k1.html">secp256k1</a></li><li><a href="module-serialization.html">serialization</a></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li><li><a href="global.html#getNetworkCoinType">getNetworkCoinType</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/fees.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** @module fees */
+
+import { checkFeeEstimates } from './check';
+
+/**
+ * Return an array of precomputed feeRates within a range.
+ *
+ * It's probably a good idea to keep default values.
+ *
+ * Maybe you only want to change the number of samples.
+ * @param {Object} parameters
+ * @param {number} [parameters.minSatsPerByte=1] The minimum fee rate.
+ * Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
+ * It should be greater than `0` and lower than `1E6`.
+ * **NOTE**: it doesn't make sense to make it lower than 1 for the mainnet.
+ * @param {number} [parameters.maxSatsPerByte=10000] The maximum fee rate.
+ * Default value is `10000`, which is 10 times larger than 22-dec-2017 fee rates.
+ * It should be greater than minSatsPerByte and lower than `1E6`.
+ * @param {number} [parameters.samples=100] The number of samples, that is, the length of the returned array.
+ * Must be an integer. Default value is `100`. Accepted values go from `2` to `1E5`.
+ * @param {boolean} [parameters.logScale=true] Whether to use logarithmic (`true`) or lineal scale (`false`).
+ * Default is `true`, that is to use logarithmic scale to give more granularity to lower fee rates.
+ * @returns {Array} An array of numbers containing the sampled fee rates.
+ */
+export function feeRateSampling({
+  minSatsPerByte = 1,
+  maxSatsPerByte = 10000,
+  samples = 100,
+  logScale = true
+} = {}) {
+  const result = [];
+
+  if (
+    typeof minSatsPerByte !== 'number' ||
+    minSatsPerByte &lt; 0 ||
+    minSatsPerByte > 1e6
+  )
+    throw new Error('Invalid minSatsPerByte');
+  if (
+    typeof maxSatsPerByte !== 'number' ||
+    maxSatsPerByte &lt;= minSatsPerByte ||
+    maxSatsPerByte > 1e6
+  )
+    throw new Error('Invalid maxSatsPerByte');
+  if (!Number.isSafeInteger(samples) || samples &lt; 2 || samples > 1e5)
+    throw new Error('Invalid samples');
+  if (typeof logScale !== 'boolean') throw new Error('Invalid logScale');
+
+  if (logScale) {
+    result.push(minSatsPerByte);
+    let f = Math.pow(maxSatsPerByte / minSatsPerByte, 1 / --samples);
+    while (--samples) result.push(result[result.length - 1] * f);
+    result.push(maxSatsPerByte);
+  } else {
+    for (
+      let i = minSatsPerByte;
+      i &lt;= maxSatsPerByte;
+      i += (maxSatsPerByte - minSatsPerByte) / (samples - 1)
+    )
+      result.push(i);
+  }
+
+  return result;
+}
+
+/**
+ * Pick a fee rate in sats per vbyte, given:
+ * * An Object indexing different fees per number of blocks.
+ *   The Object must match the format as the one returned by
+ *   {@link module:dataFetchers.esploraFetchFeeEstimates esploraFetchFeeEstimates}.
+ * * Time to wait (in seconds).
+ *
+ * This method will pick the fee corresponding to the earlier block (not the
+ * closest one). It's better to assume larger fees. If you set a target of 19
+ * minutes, then this method returns the feeRate for being mined in 1 block,
+ * not 2.
+ *
+ * This method assumes 10 minute blocks.
+ * @param {Object} esploraFeeEstimates See the returned value of {@link module:dataFetchers.esploraFetchFeeEstimates esploraFetchFeeEstimates}.
+ * @param {number} targetTime Number of seconds to wait for the tx to be
+ * accepted.
+ * @returns {number} The fee rate in sats per vbyte.
+ */
+export function pickEsploraFeeEstimate(esploraFeeEstimates, targetTime) {
+  checkFeeEstimates(esploraFeeEstimates);
+  if (!Number.isSafeInteger(targetTime) || targetTime &lt; 0)
+    throw new Error('Invalid targetTime!');
+
+  const block = Object.keys(esploraFeeEstimates)
+    .sort()
+    .reverse()
+    .find(block => block &lt;= Math.max(targetTime / 600 + Number.EPSILON, 1));
+  if (typeof block === 'undefined') {
+    throw new Error('Invalid targetTime!');
+  }
+
+  return esploraFeeEstimates[block];
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Wed Oct 12 2022 10:56:31 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
