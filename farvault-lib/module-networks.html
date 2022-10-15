@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>src/fees.js - Documentation</title>
+    <title>networks - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,117 +34,329 @@
 
 <div id="main">
     
-    <h1 class="page-title">src/fees.js</h1>
+    <h1 class="page-title">networks</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/** @module fees */
+        
+    
+</header>
 
-import { checkFeeEstimates } from './check';
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-/**
- * Return an array of precomputed feeRates within a range.
- *
- * It's probably a good idea to keep default values.
- *
- * Maybe you only want to change the number of samples.
- * @param {Object} parameters
- * @param {number} [parameters.minSatsPerByte=1] The minimum fee rate.
- * Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
- * It should be greater than `0` and lower than `1E6`.
- * **NOTE**: it doesn't make sense to make it lower than 1 for the mainnet.
- * @param {number} [parameters.maxSatsPerByte=10000] The maximum fee rate.
- * Default value is `10000`, which is 10 times larger than 22-dec-2017 fee rates.
- * It should be greater than minSatsPerByte and lower than `1E6`.
- * @param {number} [parameters.samples=100] The number of samples, that is, the length of the returned array.
- * Must be an integer. Default value is `100`. Accepted values go from `2` to `1E5`.
- * @param {boolean} [parameters.logScale=true] Whether to use logarithmic (`true`) or lineal scale (`false`).
- * Default is `true`, that is to use logarithmic scale to give more granularity to lower fee rates.
- * @returns {Array} An array of numbers containing the sampled fee rates.
- */
-export function feeRateSampling({
-  minSatsPerByte = 1,
-  maxSatsPerByte = 10000,
-  samples = 100,
-  logScale = true
-} = {}) {
-  const result = [];
+            
+        
+        </div>
+    
 
-  if (
-    typeof minSatsPerByte !== 'number' ||
-    minSatsPerByte &lt; 0 ||
-    minSatsPerByte > 1e6
-  )
-    throw new Error('Invalid minSatsPerByte');
-  if (
-    typeof maxSatsPerByte !== 'number' ||
-    maxSatsPerByte &lt;= minSatsPerByte ||
-    maxSatsPerByte > 1e6
-  )
-    throw new Error('Invalid maxSatsPerByte');
-  if (!Number.isSafeInteger(samples) || samples &lt; 2 || samples > 1e5)
-    throw new Error('Invalid samples');
-  if (typeof logScale !== 'boolean') throw new Error('Invalid logScale');
+    
 
-  if (logScale) {
-    result.push(minSatsPerByte);
-    let f = Math.pow(maxSatsPerByte / minSatsPerByte, 1 / --samples);
-    while (--samples) result.push(result[result.length - 1] * f);
-    result.push(maxSatsPerByte);
-  } else {
-    for (
-      let i = minSatsPerByte;
-      i &lt;= maxSatsPerByte;
-      i += (maxSatsPerByte - minSatsPerByte) / (samples - 1)
-    )
-      result.push(i);
-  }
+    
 
-  return result;
-}
+    
+    
+    
 
-/**
- * Pick a fee rate in sats per vbyte, given:
- * * An Object indexing different fees per number of blocks.
- *   The Object must match the format as the one returned by
- *   {@link module:dataFetchers.esploraFetchFeeEstimates esploraFetchFeeEstimates}.
- * * Time to wait (in seconds).
- *
- * This method will pick the fee corresponding to the earlier block (not the
- * closest one). It's better to assume larger fees. If you set a target of 19
- * minutes, then this method returns the feeRate for being mined in 1 block,
- * not 2.
- *
- * This method assumes 10 minute blocks.
- * @param {Object} esploraFeeEstimates See the returned value of {@link module:dataFetchers.esploraFetchFeeEstimates esploraFetchFeeEstimates}.
- * @param {number} targetTime Number of seconds to wait for the tx to be
- * accepted.
- * @returns {number} The fee rate in sats per vbyte.
- */
-export function pickEsploraFeeEstimate(esploraFeeEstimates, targetTime) {
-  checkFeeEstimates(esploraFeeEstimates);
-  if (!Number.isSafeInteger(targetTime) || targetTime &lt; 0)
-    throw new Error('Invalid targetTime!');
+     
 
-  const block = Object.keys(esploraFeeEstimates)
-    .sort()
-    .reverse()
-    .find(block => block &lt;= Math.max(targetTime / 600 + Number.EPSILON, 1));
-  if (typeof block === 'undefined') {
-    throw new Error('Invalid targetTime!');
-  }
+    
 
-  return esploraFeeEstimates[block];
-}
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".networks"><span class="type-signature">(static, constant) </span>networks<span class="type-signature"> :object</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_networks.js.html">src/networks.js</a>, <a href="src_networks.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>The <code>networks</code> object contains the following supported network objects:</p>
+<ul>
+<li><code>bitcoin</code></li>
+<li><code>regtest</code></li>
+<li><code>testnet</code></li>
+<li><code>signet</code></li>
+</ul>
+<p>And is defined as follows:</p>
+<p><code>const networks = { bitcoin, regtest, testnet, signet }</code></p>
+<p>Usage example:</p>
+<pre class="prettyprint source"><code>import {networks} from 'networks';
+getDerivationPathAddress({extPubGetter, path, network: networks.bitcoin});
 </code></pre>
-        </article>
-    </section>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getNetworkCoinType"><span class="type-signature">(static) </span>getNetworkCoinType<span class="signature">(network<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_networks.js.html">src/networks.js</a>, <a href="src_networks.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Gives back the account number used in a network.</p>
+<p>It assumes BIP44, BIP49 and BIP84 account-structures.</p>
+<p>It returns 0 for the Bitcoin mainnet and 1 for regtest and testnet networks.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>network</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>networks.bitcoin</code>
+                
+                </td>
+            
+
+            <td class="description last"><p>A <a href="module-networks.html#.networks">network</a>.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>0 for the Bitcoin mainnet and 1 for regtest and testnet
+networks.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -156,7 +368,7 @@ export function pickEsploraFeeEstimate(esploraFeeEstimates, targetTime) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sat Oct 15 2022 12:00:25 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sat Oct 15 2022 12:00:26 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
