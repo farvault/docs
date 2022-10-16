@@ -57,13 +57,15 @@
         <div class="container-overview">
         
             
-                <div class="description usertext"><p>All the methods in this module assume BIP32 HD address derivation according
-to the BIP44 hierarchy.</p>
-<p>In addition, they only assumes as valid purposes:</p>
+                <div class="description usertext"><p>All the methods in this module assume
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki#Path_levels">BIP32</a>
+HD address derivation and
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#Path_levels">BIP44 path levels</a>.</p>
+<p>These are the only <code>purposes</code> supported by this module:</p>
 <ul>
-<li>Legacy (BIP44).</li>
-<li>Nested segwit (BIP49).</li>
-<li>Native segwit (BIP84).</li>
+<li>Legacy (<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>).</li>
+<li>Nested segwit (<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>).</li>
+<li>Native segwit (<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>).</li>
 </ul></div>
             
 
@@ -183,7 +185,7 @@ to the BIP44 hierarchy.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line124">line 124</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -223,9 +225,10 @@ to the BIP44 hierarchy.</p>
 
 
 <div class="description usertext">
-    <p>Derives an extended pub key for a particular index and isChange option.
-See BIP44 to understand the isChange and index parameters: <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki</a>.</p>
-<p>Returns a pubkey (of type Buffer)</p>
+    <p>Derives an extended pub key for a particular <code>index</code> and <code>isChange</code>.</p>
+<p>See <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>
+to learn about <code>isChange</code> and <code>index</code> parameters.</p>
+<p>Returns a pubkey (of type <code>Buffer</code>).</p>
 </div>
 
 
@@ -479,7 +482,7 @@ See BIP44 to understand the isChange and index parameters: <a href="https://gith
 
         
 <div class="param-desc">
-    <p>a pubkey</p>
+    <p>A pubkey.</p>
 </div>
 
 
@@ -517,7 +520,7 @@ See BIP44 to understand the isChange and index parameters: <a href="https://gith
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line400">line 400</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line432">line 432</a>
     </li></ul></dd>
     
 
@@ -778,7 +781,7 @@ corresponds to a derivation <code>path</code>.</p>
 
         
 <div class="param-desc">
-    <p>A Bitcoin address</p>
+    <p>A Bitcoin address.</p>
 </div>
 
 
@@ -816,7 +819,7 @@ corresponds to a derivation <code>path</code>.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line325">line 325</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line357">line 357</a>
     </li></ul></dd>
     
 
@@ -1110,7 +1113,7 @@ corresponds to a derivation <code>path</code>.</p>
 
         
 <div class="param-desc">
-    <p>A Bitcoin address</p>
+    <p>A Bitcoin address.</p>
 </div>
 
 
@@ -1148,7 +1151,7 @@ corresponds to a derivation <code>path</code>.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line196">line 196</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line225">line 225</a>
     </li></ul></dd>
     
 
@@ -1190,7 +1193,10 @@ corresponds to a derivation <code>path</code>.</p>
 <div class="description usertext">
     <p>Takes a string representation of a derivation path and returns the elements
 that form it.</p>
-<p>It assumes BIP44, BIP49 and BIP84 account-structures.</p>
+<p>It assumes <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+or <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>
+derivation schemes.</p>
 </div>
 
 
@@ -1271,8 +1277,8 @@ Note that &quot;m/&quot; is optional and h, H or ' can be used indistinctably.</
 
         
 <div class="param-desc">
-    <p>Returns the <code>path</code> elements: <code>{ purpose: number, coinType: number, accountNumber:number, index:number, isChange:boolean }</code>.
-See serializeDerivationPath for further description of the types of the returned object elements.</p>
+    <p>Returns the <code>path</code> elements: <code>{ purpose: number, coinType: number, accountNumber:number, index:number, isChange:boolean }</code>.</p>
+<p>See <a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a> for further description of the types of the returned object elements.</p>
 </div>
 
 
@@ -1310,7 +1316,7 @@ See serializeDerivationPath for further description of the types of the returned
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line268">line 268</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line300">line 300</a>
     </li></ul></dd>
     
 
@@ -1351,7 +1357,10 @@ See serializeDerivationPath for further description of the types of the returned
 
 <div class="description usertext">
     <p>Serializes a derivation path.</p>
-<p>It assumes BIP44, BIP49 and BIP84 schemes.</p>
+<p>It assumes <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+or <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>
+derivation schemes.</p>
 </div>
 
 
@@ -1447,7 +1456,7 @@ See serializeDerivationPath for further description of the types of the returned
 
             
 
-            <td class="description last"><p>LEGACY, NESTED_SEGWIT, or NATIVE_SEGWIT.</p></td>
+            <td class="description last"><p><code>LEGACY</code>, <code>NESTED_SEGWIT</code> or <code>NATIVE_SEGWIT</code>.</p></td>
         </tr>
 
     
@@ -1572,7 +1581,7 @@ See serializeDerivationPath for further description of the types of the returned
 
         
 <div class="param-desc">
-    <p>The serialized derivation path</p>
+    <p>The serialized derivation path.</p>
 </div>
 
 
@@ -1610,7 +1619,7 @@ See serializeDerivationPath for further description of the types of the returned
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line92">line 92</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -1651,28 +1660,41 @@ See serializeDerivationPath for further description of the types of the returned
 
 <div class="description usertext">
     <p>Converts and returns an extended pub to use a new <code>purpose</code> as defined in
-BIP44. The <code>purpose</code> specifies whether the extended pub corresponds to a
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>.
+The <code>purpose</code> specifies whether the extended pub corresponds to a
 legacy, nested or native segwit wallet.</p>
-<p>Use this function as an interface to any BIP32 (BIP44) library that
-assumes that the purpose corresponds always to a legacy wallet even if the
-wallet is being used to represent segwit addresses.</p>
+<p>Use this function as an interface to any
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
+library that assumes the <code>purpose</code> is always that of a legacy wallet, even if the
+wallet is used to represent segwit addresses.</p>
 <p>In other words, use this tool to convert extended pubs that start with &quot;xpub&quot;
 or &quot;tpub&quot; prefixes to: &quot;ypub&quot;, &quot;zpub&quot;, or &quot;upub&quot; and &quot;vpub&quot;, respectively.</p>
-<p>Motivation: initially, BIP32 assumed that an extended pub would always start
+<p>Converting the prefix is not as easy as changing the first 4 characters.
+Use this feature to manage conversions correctly.</p>
+<p>Motivation: initially,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
+assumed that an extended pub would always start
 with an &quot;xpub&quot; or &quot;tpub&quot; prefix for mainnet and test networks respectively.
 This is achieved by serializing some hardcoded <code>XPUBVERSION</code> and
 <code>TPUBVERSION</code> bytes that were choosen so that the serialization would produce
 &quot;xpub&quot; or &quot;tpub&quot; as an artifact.</p>
-<p>Then BIP49 and BIP84 appeared and proposed to add different version bytes to
+<p>Then <a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+and
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>
+appeared and proposed to add different version bytes to
 generate ypub, zpub, upub and vpub prefixes. ypub/upub were used to specify
 nested segwit wallets and vpub/zpub to specify native segwit.</p>
-<p>Some libs did not adopt these proposals.
-This is a handy tool to be able to interact with these libs.</p>
-<p>For example Ledger's javascript libraries expect to be passed an
-xpub even when dealing with native Segwit wallets.</p>
-<p>Also bitcoinjs-lib/bip32 npm package always assume xpub and tpub too.</p>
-<p>Note: Internally, FarVault works assuming always different BIP44, BIP49 and
-BIP84 prefixes.</p>
+<p>Some BIP32 libs do not allow these new prefixes since BIP32 does only define
+xpub and tpub.</p>
+<p>This is a handy tool to be able to interact with these libs.</p>
+<p>For example Ledger's javascript libraries returns an
+<a href="https://github.com/LedgerHQ/ledger-live/tree/develop/libs/ledgerjs/packages/hw-app-btc#getwalletxpub">xpub even when requesting Segwit accounts</a>.</p>
+<p>Also <a href="https://github.com/bitcoinjs/bip32">bitcoinjs-lib/bip32</a> always
+assumes xpub or tpub.</p>
+<p>Note: Internally, FarVault always uses different prefixes for
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+and <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>.</p>
 </div>
 
 
@@ -1768,7 +1790,7 @@ BIP84 prefixes.</p>
 
             
 
-            <td class="description last"><p>An extended pub</p></td>
+            <td class="description last"><p>An extended pub.</p></td>
         </tr>
 
     
@@ -1791,8 +1813,8 @@ BIP84 prefixes.</p>
 
             
 
-            <td class="description last"><p>The purpose we want to transform to: LEGACY,
-NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
+            <td class="description last"><p>The purpose we want to transform to: <code>LEGACY</code>,
+<code>NATIVE_SEGWIT</code> or <code>NESTED_SEGWIT</code>.</p></td>
         </tr>
 
     
@@ -1815,7 +1837,7 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
 
             
 
-            <td class="description last"><p>[a network object](networks#networks).</p></td>
+            <td class="description last"><p>A <a href="module-networks.html#.networks">network</a>.</p></td>
         </tr>
 
     
@@ -1848,7 +1870,7 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
 
         
 <div class="param-desc">
-    <p>extPub An extended pub converted to <code>purpose</code></p>
+    <p>extPub An extended pub converted to <code>purpose</code>.</p>
 </div>
 
 
@@ -1886,7 +1908,7 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line151">line 151</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line172">line 172</a>
     </li></ul></dd>
     
 
@@ -1926,9 +1948,11 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
 
 
 <div class="description usertext">
-    <p>Takes an extended pub key and extracts its account number</p>
-<p>It assumes BIP44, BIP49 and BIP84 account-structures.</p>
-<p>See BIP44 to understand how to extract it: <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki</a>.</p>
+    <p>Takes an extended pub key and extracts its account number.</p>
+<p>It assumes <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+or <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>
+derivation schemes.</p>
 </div>
 
 
@@ -2112,7 +2136,7 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
 
         
 <div class="param-desc">
-    <p>The account number extracted</p>
+    <p>The extracted account number.</p>
 </div>
 
 
@@ -2150,7 +2174,7 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line179">line 179</a>
+        <a href="src_bip44_index.js.html">src/bip44/index.js</a>, <a href="src_bip44_index.js.html#line204">line 204</a>
     </li></ul></dd>
     
 
@@ -2190,11 +2214,14 @@ NATIVE_SEGWIT or NESTED_SEGWIT</p></td>
 
 
 <div class="description usertext">
-    <p>Extracts the purpose from an extended pub.
-It assumes that the extended pub will have xpub, ypub, zpub, tpub, upub vpub
-prefixes as defined in BIP44, BIP49 and BIP84.</p>
-<p>Note that the network is not needed to extract the purpose. It's optional.
-Pass it if you want to make an additional check and make sure that the prefix
+    <p>Extracts the purpose from an extended pub.</p>
+<p>It assumes that the extended pub will have xpub, ypub, zpub, tpub, upub vpub
+prefixes as defined in
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a>,
+<a href="https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki">BIP49</a>
+and <a href="https://github.com/bitcoin/bips/blob/master/bip-0084.mediawiki">BIP84</a>.</p>
+<p>Note that the network is not needed to extract the <code>purpose</code>. It's an optional
+parameter. Pass it if you want to make an additional check and make sure that the prefix
 matches with the network. For example regtest, signet or testnet networks
 must have prefix tpub/upub/ypub while bitcoin must have: xpub/ypub/zpub.</p>
 </div>
@@ -2389,7 +2416,7 @@ must have prefix tpub/upub/ypub while bitcoin must have: xpub/ypub/zpub.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sat Oct 15 2022 12:13:58 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sun Oct 16 2022 08:06:10 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
