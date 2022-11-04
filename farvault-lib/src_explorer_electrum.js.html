@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fees - Documentation</title>
+    <title>src/explorer/electrum.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,605 +34,194 @@
 
 <div id="main">
     
-    <h1 class="page-title">fees</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".feeRateSampling"><span class="type-signature">(static) </span>feeRateSampling<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Return an array of precomputed feeRates within a range.</p>
-<p>It's probably a good idea to keep default values.</p>
-<p>Maybe you only want to change the number of samples.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>minSatsPerByte</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The minimum fee rate.
-Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
-It should be greater than <code>0</code> and lower than <code>1E6</code>.
-<strong>NOTE</strong>: it doesn't make sense to make it lower than 1 for the mainnet.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>maxSatsPerByte</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>10000</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The maximum fee rate.
-Default value is <code>10000</code>, which is 10 times larger than 22-dec-2017 fee rates.
-It should be greater than minSatsPerByte and lower than <code>1E6</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>samples</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>100</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of samples, that is, the length of the returned array.
-Must be an integer. Default value is <code>100</code>. Accepted values go from <code>2</code> to <code>1E5</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>logScale</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Whether to use logarithmic (<code>true</code>) or lineal scale (<code>false</code>).
-Default is <code>true</code>, that is to use logarithmic scale to give more granularity to lower fee rates.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>An array of numbers containing the sampled fee rates.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".pickFeeEstimate"><span class="type-signature">(static) </span>pickFeeEstimate<span class="signature">(esploraFeeEstimates, targetTime)</span><span class="type-signature"> &rarr; {number}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line84">line 84</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Pick a fee rate in sats per vbyte, given:</p>
-<ul>
-<li>An Object indexing different fees per number of blocks.
-The Object must match the format as the one returned by
-esploraFetchFeeEstimates.</li>
-<li>Time to wait (in seconds).</li>
-</ul>
-<p>This method will pick the fee corresponding to the earlier block (not the
-closest one). It's better to assume larger fees. If you set a target of 19
-minutes, then this method returns the feeRate for being mined in 1 block,
-not 2.</p>
-<p>This method assumes 10 minute blocks.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>esploraFeeEstimates</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>See the returned value of esploraFetchFeeEstimates.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Number of seconds to wait for the tx to be
-accepted.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The fee rate in sats per vbyte.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">number</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">src/explorer/electrum.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import net from 'net';
+import tls from 'tls';
+import ElectrumClient from 'electrum-client';
+
+import { networks } from '../networks';
+import { checkNetwork, checkFeeEstimates } from '../check';
+import { address as bjsAddress, crypto } from 'bitcoinjs-lib';
+
+function addressToScriptHash(address, network = networks.bitcoin) {
+  const script = bjsAddress.toOutputScript(address, network);
+  const scriptHash = Buffer.from(crypto.sha256(script))
+    .reverse()
+    .toString('hex');
+  return scriptHash;
+}
+
+/**
+ * This class is encapsulated in {@link Explorer}.
+ *
+ * There is no need to use it directly.
+ */
+export class Electrum {
+  #client;
+  #height;
+  #blockTime;
+
+  #host;
+  #port;
+  #protocol;
+  #network;
+
+  #assertConnect() {
+    if (typeof this.#client === 'undefined') {
+      throw new Error('Client not connected.');
+    }
+  }
+
+  /**
+   * @param {object} params
+   * @param {string} params.host Elecrum's host.
+   * @param {number} params.port Elecrum's port.
+   * @param {protocol} params.protocol Elecrum's protocol. Either 'ssl' or 'tcp'.
+   * @param {object} [params.network=networks.bitcoin] A {@link module:networks.networks network}.
+   */
+  constructor({ host, port, protocol, network = networks.bitcoin }) {
+    if (
+      typeof host !== 'string' ||
+      !Number.isInteger(port) ||
+      port &lt;= 0 ||
+      (protocol !== 'ssl' &amp;&amp; protocol !== 'tcp')
+    ) {
+      throw new Error(
+        "Specify a host (string), port (integer), and protocol ('ssl' or 'tcp') for Electrum."
+      );
+    }
+    this.#host = host;
+    this.#port = port;
+    this.#protocol = protocol;
+    checkNetwork(network);
+    this.#network = network;
+  }
+  #updateHeight(header) {
+    if (
+      header &amp;&amp;
+      header.height &amp;&amp;
+      (typeof this.#height === 'undefined' || header.height > this.#height)
+    ) {
+      this.#height = header.height;
+      this.#blockTime = Math.floor(+new Date() / 1000);
+    }
+  }
+
+  /**
+   * Connect the socket. See {@link Explorer#connect}.
+   */
+  async connect() {
+    if (this.#client) {
+      throw new Error('Client already connected.');
+    }
+    this.#client = new ElectrumClient(
+      net,
+      this.#protocol === 'ssl' ? tls : false,
+      this.#port,
+      this.#host,
+      this.#protocol
+    );
+    this.#assertConnect();
+    await this.#client.initElectrum({
+      client: 'farvault',
+      version: '1.4'
+    });
+    this.#client.subscribe.on('blockchain.headers.subscribe', headers => {
+      if (Array.isArray(headers)) {
+        for (const header of headers) {
+          this.#updateHeight(header);
+        }
+      }
+    });
+    const header = await this.#client.blockchainHeaders_subscribe();
+    this.#updateHeight(header);
+  }
+
+  /**
+   * Close the socket. See {@link Explorer#close}.
+   */
+  async close() {
+    this.#assertConnect();
+    const ret = await this.#client.close();
+    this.#client = undefined;
+    //await new Promise(r => setTimeout(r, 9000)); //give some tome so that timeouts are closed
+    return ret;
+  }
+
+  /**
+   * See {@link Explorer#fetchAddress}
+   * */
+  async fetchAddress(address) {
+    this.#assertConnect();
+    let used = false;
+    const scriptHash = addressToScriptHash(address, this.#network);
+    const balance = await this.#client.blockchainScripthash_getBalance(
+      scriptHash
+    );
+    if (balance.confirmed === 0) {
+      const history = await this.#client.blockchainScripthash_getHistory(
+        scriptHash
+      );
+      if (history.length) {
+        used = true;
+      }
+    } else {
+      used = true;
+    }
+    return { balance: balance.confirmed, used };
+  }
+
+  /**
+   * See {@link Explorer#fetchUtxos}
+   * */
+  async fetchUtxos(address) {
+    this.#assertConnect();
+    const utxos = [];
+    const unspents = await this.#client.blockchainScripthash_listunspent(
+      addressToScriptHash(address, this.#network)
+    );
+    for (const unspent of unspents) {
+      if (this.#height - unspent.height >= 5) {
+        const tx = await this.#client.blockchainTransaction_get(
+          unspent.tx_hash
+        );
+        utxos.push({ tx, n: unspent.tx_pos });
+      }
+    }
+    return utxos;
+  }
+
+  /**
+   * See {@link Explorer#fetchFeeEstimates}
+   * */
+  async fetchFeeEstimates() {
+    this.#assertConnect();
+    //Same as in https://github.com/Blockstream/esplora/blob/master/API.md#get-fee-estimates
+    //The available confirmation targets are 1-25, 144, 504 and 1008 blocks.
+    const T = [...Array.from({ length: 25 }, (_, i) => i + 1), 144, 504, 1008];
+
+    const feeEstimates = {};
+    for (const target of T) {
+      //100000 = 10 ^ 8 sats/BTC / 10 ^3 bytes/kbyte
+      const fee = await this.#client.blockchainEstimatefee(target);
+      feeEstimates[target] = 100000 * fee;
+    }
+    checkFeeEstimates(feeEstimates);
+    return feeEstimates;
+  }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

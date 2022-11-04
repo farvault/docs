@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fees - Documentation</title>
+    <title>esplora - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">fees</h1>
+    <h1 class="page-title">esplora</h1>
     
 
     
@@ -47,6 +47,8 @@
 <header>
     
         
+            
+        
     
 </header>
 
@@ -55,6 +57,86 @@
         <div class="container-overview">
         
             
+                <div class="description usertext"><p>This module is encapsulated in <a href="Explorer.html">Explorer</a>.</p>
+<p>There's no need to use it directly.</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_esplora.js.html">src/explorer/esplora.js</a>, <a href="src_explorer_esplora.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             
         
@@ -83,7 +165,7 @@
 
     
 
-    <h4 class="name" id=".feeRateSampling"><span class="type-signature">(static) </span>feeRateSampling<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".esploraFetchAddress"><span class="type-signature">(async, static) </span>esploraFetchAddress<span class="signature">(address, baseUrl)</span><span class="type-signature"> &rarr; {Promise.&lt;object>|boolean|number}</span></h4>
 
     
 
@@ -95,7 +177,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line25">line 25</a>
+        <a href="src_explorer_esplora.js.html">src/explorer/esplora.js</a>, <a href="src_explorer_esplora.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -135,9 +217,9 @@
 
 
 <div class="description usertext">
-    <p>Return an array of precomputed feeRates within a range.</p>
-<p>It's probably a good idea to keep default values.</p>
-<p>Maybe you only want to change the number of samples.</p>
+    <p>Fetches <a href="https://github.com/Blockstream/esplora/blob/master/API.md#get-addressaddress"><code>/address/:address</code></a>
+from an esplora service to get whether the address ever received some coins
+and the current amount of sats that it holds (if any).</p>
 </div>
 
 
@@ -175,13 +257,13 @@
 
         <tr>
             
-                <td class="name"><code>parameters</code></td>
+                <td class="name"><code>address</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
             
@@ -191,9 +273,193 @@
 
             
 
-            <td class="description last">
-                <h6>Properties</h6>
+            <td class="description last"><p>A Bitcoin address</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>baseUrl</code></td>
+            
+
+            <td class="type">
+            
                 
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The Base URL of the Esplora server. Defaults to
+<a href="http://127.0.0.1:3002">http://127.0.0.1:3002</a></p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    <p>return</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;object></span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>return.used Whether that address ever received sats.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    <p>return.balance Number of sats currently controlled by that address.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".esploraFetchFeeEstimates"><span class="type-signature">(async, static) </span>esploraFetchFeeEstimates<span class="signature">(baseUrl)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_esplora.js.html">src/explorer/esplora.js</a>, <a href="src_explorer_esplora.js.html#line115">line 115</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Fetches <a href="https://github.com/Blockstream/esplora/blob/master/API.md#get-fee-estimates"><code>/fee-estimates</code></a>
+from an esplora service.</p>
+<p>Get an object where the key is the confirmation target (in number of blocks)
+and the value is the estimated feerate (in sat/vB).</p>
+<p>The available confirmation targets are <code>1-25, 144, 504</code> and <code>1008</code> blocks.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
 
 <table class="params">
     <thead>
@@ -205,11 +471,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -221,170 +483,24 @@
 
         <tr>
             
-                <td class="name"><code>minSatsPerByte</code></td>
+                <td class="name"><code>baseUrl</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
 
-            <td class="description last"><p>The minimum fee rate.
-Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
-It should be greater than <code>0</code> and lower than <code>1E6</code>.
-<strong>NOTE</strong>: it doesn't make sense to make it lower than 1 for the mainnet.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>maxSatsPerByte</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>10000</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The maximum fee rate.
-Default value is <code>10000</code>, which is 10 times larger than 22-dec-2017 fee rates.
-It should be greater than minSatsPerByte and lower than <code>1E6</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>samples</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>100</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of samples, that is, the length of the returned array.
-Must be an integer. Default value is <code>100</code>. Accepted values go from <code>2</code> to <code>1E5</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>logScale</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Whether to use logarithmic (<code>true</code>) or lineal scale (<code>false</code>).
-Default is <code>true</code>, that is to use logarithmic scale to give more granularity to lower fee rates.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"><p>The Base URL of the Esplora server. Defaults to
+<a href="http://127.0.0.1:3002">http://127.0.0.1:3002</a></p></td>
         </tr>
 
     
@@ -410,7 +526,10 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
 
         
 <div class="param-desc">
-    <p>An array of numbers containing the sampled fee rates.</p>
+    <p>An object where the key is the confirmation target (in number of blocks).
+For example:</p>
+<pre class="prettyprint source"><code>{ &quot;1&quot;: 87.882, &quot;2&quot;: 87.882, &quot;3&quot;: 87.882, &quot;4&quot;: 87.882, &quot;5&quot;: 81.129, &quot;6&quot;: 68.285, ..., &quot;144&quot;: 1.027, &quot;504&quot;: 1.027, &quot;1008&quot;: 1.027 }
+</code></pre>
 </div>
 
 
@@ -421,7 +540,7 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
     </dt>
     <dd>
         
-<span class="param-type">Array</span>
+<span class="param-type">Promise.&lt;Object></span>
 
 
     </dd>
@@ -436,7 +555,7 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
 
     
 
-    <h4 class="name" id=".pickFeeEstimate"><span class="type-signature">(static) </span>pickFeeEstimate<span class="signature">(esploraFeeEstimates, targetTime)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id=".esploraFetchUtxos"><span class="type-signature">(async, static) </span>esploraFetchUtxos<span class="signature">(address, baseUrl)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
 
     
 
@@ -448,7 +567,7 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line84">line 84</a>
+        <a href="src_explorer_esplora.js.html">src/explorer/esplora.js</a>, <a href="src_explorer_esplora.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -488,18 +607,10 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
 
 
 <div class="description usertext">
-    <p>Pick a fee rate in sats per vbyte, given:</p>
-<ul>
-<li>An Object indexing different fees per number of blocks.
-The Object must match the format as the one returned by
-esploraFetchFeeEstimates.</li>
-<li>Time to wait (in seconds).</li>
-</ul>
-<p>This method will pick the fee corresponding to the earlier block (not the
-closest one). It's better to assume larger fees. If you set a target of 19
-minutes, then this method returns the feeRate for being mined in 1 block,
-not 2.</p>
-<p>This method assumes 10 minute blocks.</p>
+    <p>Recursively fetches <a href="https://github.com/Blockstream/esplora/blob/master/API.md#get-txtxidhex"><code>/tx/:txid/hex</code></a> in an esplora service for all the confirmed utxos of a certain address.</p>
+<p>It first fetches all the unspent outputs of an address with
+<a href="https://github.com/Blockstream/esplora/blob/master/API.md#get-addressaddressutxo">'/address/:address/utxo'</a>
+and then loops over those utxos.</p>
 </div>
 
 
@@ -537,13 +648,13 @@ not 2.</p>
 
         <tr>
             
-                <td class="name"><code>esploraFeeEstimates</code></td>
+                <td class="name"><code>address</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
             
@@ -553,20 +664,20 @@ not 2.</p>
 
             
 
-            <td class="description last"><p>See the returned value of esploraFetchFeeEstimates.</p></td>
+            <td class="description last"><p>A Bitcoin address</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>targetTime</code></td>
+                <td class="name"><code>baseUrl</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
             
@@ -576,8 +687,8 @@ not 2.</p>
 
             
 
-            <td class="description last"><p>Number of seconds to wait for the tx to be
-accepted.</p></td>
+            <td class="description last"><p>The Base URL of the Esplora server. Defaults to
+<a href="http://127.0.0.1:3002">http://127.0.0.1:3002</a></p></td>
         </tr>
 
     
@@ -603,7 +714,8 @@ accepted.</p></td>
 
         
 <div class="param-desc">
-    <p>The fee rate in sats per vbyte.</p>
+    <p>An array of utxos objects like this: <code>[{ tx, n },...]</code>,
+where <code>tx</code> is a string in hex format and <code>n</code> is an integer &gt;= 0.</p>
 </div>
 
 
@@ -614,7 +726,7 @@ accepted.</p></td>
     </dt>
     <dd>
         
-<span class="param-type">number</span>
+<span class="param-type">Promise.&lt;Array></span>
 
 
     </dd>

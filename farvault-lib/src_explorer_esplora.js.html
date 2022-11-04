@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fees - Documentation</title>
+    <title>src/explorer/esplora.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,605 +34,148 @@
 
 <div id="main">
     
-    <h1 class="page-title">fees</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".feeRateSampling"><span class="type-signature">(static) </span>feeRateSampling<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Return an array of precomputed feeRates within a range.</p>
-<p>It's probably a good idea to keep default values.</p>
-<p>Maybe you only want to change the number of samples.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>parameters</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>minSatsPerByte</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>1</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The minimum fee rate.
-Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
-It should be greater than <code>0</code> and lower than <code>1E6</code>.
-<strong>NOTE</strong>: it doesn't make sense to make it lower than 1 for the mainnet.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>maxSatsPerByte</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>10000</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The maximum fee rate.
-Default value is <code>10000</code>, which is 10 times larger than 22-dec-2017 fee rates.
-It should be greater than minSatsPerByte and lower than <code>1E6</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>samples</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>100</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of samples, that is, the length of the returned array.
-Must be an integer. Default value is <code>100</code>. Accepted values go from <code>2</code> to <code>1E5</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>logScale</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Whether to use logarithmic (<code>true</code>) or lineal scale (<code>false</code>).
-Default is <code>true</code>, that is to use logarithmic scale to give more granularity to lower fee rates.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>An array of numbers containing the sampled fee rates.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".pickFeeEstimate"><span class="type-signature">(static) </span>pickFeeEstimate<span class="signature">(esploraFeeEstimates, targetTime)</span><span class="type-signature"> &rarr; {number}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line84">line 84</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    <p>Pick a fee rate in sats per vbyte, given:</p>
-<ul>
-<li>An Object indexing different fees per number of blocks.
-The Object must match the format as the one returned by
-esploraFetchFeeEstimates.</li>
-<li>Time to wait (in seconds).</li>
-</ul>
-<p>This method will pick the fee corresponding to the earlier block (not the
-closest one). It's better to assume larger fees. If you set a target of 19
-minutes, then this method returns the feeRate for being mined in 1 block,
-not 2.</p>
-<p>This method assumes 10 minute blocks.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>esploraFeeEstimates</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>See the returned value of esploraFetchFeeEstimates.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Number of seconds to wait for the tx to be
-accepted.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>The fee rate in sats per vbyte.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">number</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">src/explorer/esplora.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This module is encapsulated in {@link Explorer}.
+ *
+ * There's no need to use it directly.
+ *
+ * @module esplora
+ **/
+
+import fetch from 'cross-fetch';
+import { networks } from '../networks';
+import { checkNetwork, checkFeeEstimates } from '../check';
+
+import { BLOCKSTREAM_ESPLORA_BASEURL, LOCAL_ESPLORA_URL } from '../constants';
+async function esploraFetchJson(...args) {
+  const response = await fetch(...args);
+  if (response.status !== 200) {
+    throw new Error('Service is down!');
+  }
+  try {
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    throw new Error('Invalid json format!');
+  }
+}
+
+async function esploraFetchText(...args) {
+  const response = await fetch(...args);
+  if (response.status !== 200) {
+    throw new Error('Service is down!');
+  }
+  try {
+    const text = await response.text();
+    return text;
+  } catch (error) {
+    throw new Error('Invalid text format!');
+  }
+}
+
+/**
+ * Fetches [`/address/:address`](https://github.com/Blockstream/esplora/blob/master/API.md#get-addressaddress)
+ * from an esplora service to get whether the address ever received some coins
+ * and the current amount of sats that it holds (if any).
+ *
+ * @async
+ * @param {string} address A Bitcoin address
+ * @param {string} baseUrl The Base URL of the Esplora server. Defaults to
+ * [http://127.0.0.1:3002](http://127.0.0.1:3002)
+ * @returns {Promise&lt;object>} return
+ * @returns {boolean} return.used Whether that address ever received sats.
+ * @returns {number} return.balance Number of sats currently controlled by that address.
+ */
+export async function esploraFetchAddress(
+  address,
+  baseUrl = LOCAL_ESPLORA_URL
+) {
+  if (typeof baseUrl !== 'string') {
+    throw new Error('Please pass a valid baseUrl');
+  }
+  const chain_stats = (await esploraFetchJson(`${baseUrl}/address/${address}`))[
+    'chain_stats'
+  ];
+  return {
+    used: chain_stats['tx_count'] !== 0,
+    balance: chain_stats['funded_txo_sum'] - chain_stats['spent_txo_sum']
+  };
+}
+
+/**
+ * Recursively fetches [`/tx/:txid/hex`](https://github.com/Blockstream/esplora/blob/master/API.md#get-txtxidhex) in an esplora service for all the confirmed utxos of a certain address.
+ *
+ * It first fetches all the unspent outputs of an address with
+ * ['/address/:address/utxo'](https://github.com/Blockstream/esplora/blob/master/API.md#get-addressaddressutxo)
+ * and then loops over those utxos.
+ *
+ * @async
+ * @param {string} address A Bitcoin address
+ * @param {string} baseUrl The Base URL of the Esplora server. Defaults to
+ * [http://127.0.0.1:3002](http://127.0.0.1:3002)
+ * @returns {Promise&lt;Array>} An array of utxos objects like this: `[{ tx, n },...]`,
+ * where `tx` is a string in hex format and `n` is an integer >= 0.
+ */
+export async function esploraFetchUtxos(address, baseUrl = LOCAL_ESPLORA_URL) {
+  const utxos = [];
+  const fetchedUtxos = await esploraFetchJson(
+    `${baseUrl}/address/${address}/utxo`
+  );
+
+  for (const utxo of fetchedUtxos) {
+    if (utxo.status.confirmed === true) {
+      const tx = await esploraFetchText(`${baseUrl}/tx/${utxo.txid}/hex`);
+      utxos.push({ tx, n: parseInt(utxo.vout) });
+    }
+  }
+  return utxos;
+}
+
+/**
+ * Fetches [`/fee-estimates`](https://github.com/Blockstream/esplora/blob/master/API.md#get-fee-estimates)
+ * from an esplora service.
+ *
+ * Get an object where the key is the confirmation target (in number of blocks)
+ * and the value is the estimated feerate (in sat/vB).
+ *
+ * The available confirmation targets are `1-25, 144, 504` and `1008` blocks.
+ * @async
+ * @param {string} baseUrl The Base URL of the Esplora server. Defaults to
+ * [http://127.0.0.1:3002](http://127.0.0.1:3002)
+ * @returns {Promise&lt;Object>} An object where the key is the confirmation target (in number of blocks).
+ * For example:
+ * ```
+ * { "1": 87.882, "2": 87.882, "3": 87.882, "4": 87.882, "5": 81.129, "6": 68.285, ..., "144": 1.027, "504": 1.027, "1008": 1.027 }
+ * ```
+ */
+export async function esploraFetchFeeEstimates(baseUrl = LOCAL_ESPLORA_URL) {
+  const feeEstimates = await esploraFetchJson(`${baseUrl}/fee-estimates`);
+  checkFeeEstimates(feeEstimates);
+  return feeEstimates;
+}
+
+export function blockstreamBaseURL(network = networks.bitcoin) {
+  checkNetwork(network, false);
+  if (network !== networks.bitcoin &amp;&amp; network !== networks.testnet) {
+    throw new Error('Blockstream API only available for maninnet or testnet');
+  }
+  return `${BLOCKSTREAM_ESPLORA_BASEURL}/${
+    network === networks.bitcoin ? '' : 'testnet/'
+  }api`;
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

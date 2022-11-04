@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>fees - Documentation</title>
+    <title>Electrum - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">fees</h1>
+    <h1 class="page-title">Electrum</h1>
     
 
     
@@ -46,6 +46,12 @@
 
 <header>
     
+        <h2>
+        Electrum
+        </h2>
+        
+            <div class="class-description usertext"><p>This class is encapsulated in <a href="Explorer.html">Explorer</a>.</p>
+<p>There is no need to use it directly.</p></div>
         
     
 </header>
@@ -56,34 +62,11 @@
         
             
 
-            
-        
-        </div>
+    
+    <h2>Constructor</h2>
     
 
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".feeRateSampling"><span class="type-signature">(static) </span>feeRateSampling<span class="signature">(parameters)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="Electrum"><span class="type-signature"></span>new Electrum<span class="signature">(params)</span><span class="type-signature"></span></h4>
 
     
 
@@ -95,7 +78,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line25">line 25</a>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -134,12 +117,6 @@
 
 
 
-<div class="description usertext">
-    <p>Return an array of precomputed feeRates within a range.</p>
-<p>It's probably a good idea to keep default values.</p>
-<p>Maybe you only want to change the number of samples.</p>
-</div>
-
 
 
 
@@ -175,13 +152,13 @@
 
         <tr>
             
-                <td class="name"><code>parameters</code></td>
+                <td class="name"><code>params</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">object</span>
 
 
             
@@ -221,7 +198,42 @@
 
         <tr>
             
-                <td class="name"><code>minSatsPerByte</code></td>
+                <td class="name"><code>host</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Elecrum's host.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>port</code></td>
             
 
             <td class="type">
@@ -236,7 +248,40 @@
             
                 <td class="attributes">
                 
-                    &lt;optional><br>
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Elecrum's port.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>protocol</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">protocol</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
                 
 
                 
@@ -248,28 +293,23 @@
             
                 <td class="default">
                 
-                    <code>1</code>
-                
                 </td>
             
 
-            <td class="description last"><p>The minimum fee rate.
-Default value is 1, which is Bitcoin core's default policy for minimum relay fee.
-It should be greater than <code>0</code> and lower than <code>1E6</code>.
-<strong>NOTE</strong>: it doesn't make sense to make it lower than 1 for the mainnet.</p></td>
+            <td class="description last"><p>Elecrum's protocol. Either 'ssl' or 'tcp'.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>maxSatsPerByte</code></td>
+                <td class="name"><code>network</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">object</span>
 
 
             
@@ -290,94 +330,12 @@ It should be greater than <code>0</code> and lower than <code>1E6</code>.
             
                 <td class="default">
                 
-                    <code>10000</code>
+                    <code>networks.bitcoin</code>
                 
                 </td>
             
 
-            <td class="description last"><p>The maximum fee rate.
-Default value is <code>10000</code>, which is 10 times larger than 22-dec-2017 fee rates.
-It should be greater than minSatsPerByte and lower than <code>1E6</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>samples</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>100</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>The number of samples, that is, the length of the returned array.
-Must be an integer. Default value is <code>100</code>. Accepted values go from <code>2</code> to <code>1E5</code>.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>logScale</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>true</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>Whether to use logarithmic (<code>true</code>) or lineal scale (<code>false</code>).
-Default is <code>true</code>, that is to use logarithmic scale to give more granularity to lower fee rates.</p></td>
+            <td class="description last"><p>A <a href="module-networks.html#.networks">network</a>.</p></td>
         </tr>
 
     
@@ -406,37 +364,43 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
 
 
 
-<h5>Returns:</h5>
+
+
 
         
-<div class="param-desc">
-    <p>An array of numbers containing the sampled fee rates.</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array</span>
-
-
-    </dd>
-</dl>
+        </div>
+    
 
     
 
+    
 
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="Electrum.html">Electrum</a></dt>
+            <dd></dd>
+        </dl>
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
 
     
 
-    <h4 class="name" id=".pickFeeEstimate"><span class="type-signature">(static) </span>pickFeeEstimate<span class="signature">(esploraFeeEstimates, targetTime)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id="close"><span class="type-signature">(async) </span>close<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
@@ -448,7 +412,7 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_fees.js.html">src/fees.js</a>, <a href="src_fees.js.html#line84">line 84</a>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line106">line 106</a>
     </li></ul></dd>
     
 
@@ -488,18 +452,7 @@ Default is <code>true</code>, that is to use logarithmic scale to give more gran
 
 
 <div class="description usertext">
-    <p>Pick a fee rate in sats per vbyte, given:</p>
-<ul>
-<li>An Object indexing different fees per number of blocks.
-The Object must match the format as the one returned by
-esploraFetchFeeEstimates.</li>
-<li>Time to wait (in seconds).</li>
-</ul>
-<p>This method will pick the fee corresponding to the earlier block (not the
-closest one). It's better to assume larger fees. If you set a target of 19
-minutes, then this method returns the feeRate for being mined in 1 block,
-not 2.</p>
-<p>This method assumes 10 minute blocks.</p>
+    <p>Close the socket. See <a href="Explorer.html#close">Explorer#close</a>.</p>
 </div>
 
 
@@ -512,115 +465,368 @@ not 2.</p>
 
 
 
-    <h5>Parameters:</h5>
-    
 
-<table class="params">
-    <thead>
-    <tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
             
-                <td class="name"><code>esploraFeeEstimates</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>See the returned value of esploraFetchFeeEstimates.</p></td>
-        </tr>
 
     
 
-        <tr>
-            
-                <td class="name"><code>targetTime</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Number of seconds to wait for the tx to be
-accepted.</p></td>
-        </tr>
+    <h4 class="name" id="connect"><span class="type-signature">(async) </span>connect<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
-    </tbody>
-</table>
 
 
 
 
+<dl class="details">
 
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
+    
 
-<h5>Returns:</h5>
+    
 
-        
-<div class="param-desc">
-    <p>The fee rate in sats per vbyte.</p>
-</div>
+    
 
+    
 
+    
 
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">number</span>
-
-
-    </dd>
+    
 </dl>
 
+
+
+
+
+<div class="description usertext">
+    <p>Connect the socket. See <a href="Explorer.html#connect">Explorer#connect</a>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
     
+
+    <h4 class="name" id="fetchAddress"><span class="type-signature">(async) </span>fetchAddress<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line117">line 117</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>See <a href="Explorer.html#fetchAddress">Explorer#fetchAddress</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="fetchFeeEstimates"><span class="type-signature">(async) </span>fetchFeeEstimates<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line160">line 160</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>See <a href="Explorer.html#fetchFeeEstimates">Explorer#fetchFeeEstimates</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="fetchUtxos"><span class="type-signature">(async) </span>fetchUtxos<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_explorer_electrum.js.html">src/explorer/electrum.js</a>, <a href="src_explorer_electrum.js.html#line140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>See <a href="Explorer.html#fetchUtxos">Explorer#fetchUtxos</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
