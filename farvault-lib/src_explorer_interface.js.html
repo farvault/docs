@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>src/explorer/esplora.js - Documentation</title>
+    <title>src/explorer/interface.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">src/explorer/esplora.js</h1>
+    <h1 class="page-title">src/explorer/interface.js</h1>
     
 
     
@@ -44,123 +44,69 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Implements the {@link Explorer} Interface for connecting to an Esplora
- * server.
+            <pre class="prettyprint source linenums"><code>function MUST_IMPLEMENT() {
+  throw new Error('This Interface method must be implemented.');
+}
+
+/** Class describing an Interface to a client that connects to a Blockchain
+ * explorer. For example, {@link EsploraExplorer a client to an Esplora Server}
+ * or {@link ElectrumExplorer a client to an Electrum Server}.
+ *
+ * Devs adding new Explorer clients to farvault-lib must implement this class
+ * methods.
  **/
-
-import fetch from 'cross-fetch';
-import { checkFeeEstimates } from '../check';
-
-import { ESPLORA_BLOCKSTREAM_URL } from '../constants';
-
-import { Explorer } from './interface';
-
-async function esploraFetchJson(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    throw new Error('Invalid json format!');
-  }
-}
-
-async function esploraFetchText(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const text = await response.text();
-    return text;
-  } catch (error) {
-    throw new Error('Invalid text format!');
-  }
-}
-
-function isValidHttpUrl(string) {
-  let url;
-  try {
-    url = new URL(string);
-  } catch (_) {
-    return false;
-  }
-  return url.protocol === 'http:' || url.protocol === 'https:';
-}
-
-/**
- * Implements an {@link Explorer} Interface for an Esplora server.
- */
-
-export class EsploraExplorer extends Explorer {
-  #url;
-
+export class Explorer {
   /**
-   * @param {object} params
-   * @param {string} params.url Esplora's API url. Defaults to blockstream.info if `service = ESPLORA`.
-   */
-  constructor({ url } = { url: ESPLORA_BLOCKSTREAM_URL }) {
-    super();
-    if (!isValidHttpUrl(url)) {
-      throw new Error(
-        'Specify a valid URL for Esplora and nothing else. Note that the url can include the port: http://api.example.com:8080/api'
-      );
-    }
-    this.#url = url;
+   * Connect to the server.
+   * @async
+   **/
+  async connect() {
+    MUST_IMPLEMENT();
   }
-
   /**
-   * Implements {@link Explorer#connect}.
-   */
-  async connect() {}
-
+   * Close the connection.
+   * @async
+   **/
+  async close() {
+    MUST_IMPLEMENT();
+  }
   /**
-   * Implements {@link Explorer#close}.
-   */
-  async close() {}
-
-  /**
-   * Implements {@link Explorer#fetchUtxos}.
-   */
+   * Get the utxos of an address.
+   * @async
+   * @param {string} address A Bitcoin address
+   * @returns {Promise&lt;Array>} An array of utxos objects like this: `[{ tx, n },...]`,
+   * where `tx` is a string in hex format and `n` is an integer >= 0.
+   * */
   async fetchUtxos(address) {
-    const utxos = [];
-    const fetchedUtxos = await esploraFetchJson(
-      `${this.#url}/address/${address}/utxo`
-    );
-
-    for (const utxo of fetchedUtxos) {
-      if (utxo.status.confirmed === true) {
-        const tx = await esploraFetchText(`${this.#url}/tx/${utxo.txid}/hex`);
-        utxos.push({ tx, n: parseInt(utxo.vout) });
-      }
-    }
-    return utxos;
+    MUST_IMPLEMENT();
   }
-
   /**
-   * Implements {@link Explorer#fetchAddress}.
-   */
+   * Get the balance of an address and find out whether the address ever
+   * received some coins.
+   * @async
+   * @param {string} address A Bitcoin address
+   * @returns {Promise&lt;object>} return
+   * @returns {boolean} return.used Whether that address ever received sats.
+   * @returns {number} return.balance Number of sats currently controlled by that address.
+   * */
   async fetchAddress(address) {
-    const chain_stats = (
-      await esploraFetchJson(`${this.#url}/address/${address}`)
-    )['chain_stats'];
-    return {
-      used: chain_stats['tx_count'] !== 0,
-      balance: chain_stats['funded_txo_sum'] - chain_stats['spent_txo_sum']
-    };
+    MUST_IMPLEMENT();
   }
 
   /**
-   * Implements {@link Explorer#fetchFeeEstimates}.
+   * Get an object where the key is the confirmation target (in number of blocks)
+   * and the value is the estimated feerate (in sat/vB).
+   *
+   * The available confirmation targets are `1-25, 144, 504` and `1008` blocks.
+   * @async
+   * @returns {Promise&lt;Object>} An object where the key is the confirmation target (in number of blocks).
+   * For example:
+   * ```
+   * { "1": 87.882, "2": 87.882, "3": 87.882, "4": 87.882, "5": 81.129, "6": 68.285, ..., "144": 1.027, "504": 1.027, "1008": 1.027 }
+   * ```
    */
   async fetchFeeEstimates() {
-    const feeEstimates = await esploraFetchJson(`${this.#url}/fee-estimates`);
-    checkFeeEstimates(feeEstimates);
-    return feeEstimates;
+    MUST_IMPLEMENT();
   }
 }
 </code></pre>

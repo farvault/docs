@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>src/explorer/esplora.js - Documentation</title>
+    <title>src/HDSigner/interface.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">src/explorer/esplora.js</h1>
+    <h1 class="page-title">src/HDSigner/interface.js</h1>
     
 
     
@@ -44,123 +44,119 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Implements the {@link Explorer} Interface for connecting to an Esplora
- * server.
- **/
-
-import fetch from 'cross-fetch';
-import { checkFeeEstimates } from '../check';
-
-import { ESPLORA_BLOCKSTREAM_URL } from '../constants';
-
-import { Explorer } from './interface';
-
-async function esploraFetchJson(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    throw new Error('Invalid json format!');
-  }
-}
-
-async function esploraFetchText(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const text = await response.text();
-    return text;
-  } catch (error) {
-    throw new Error('Invalid text format!');
-  }
-}
-
-function isValidHttpUrl(string) {
-  let url;
-  try {
-    url = new URL(string);
-  } catch (_) {
-    return false;
-  }
-  return url.protocol === 'http:' || url.protocol === 'https:';
+            <pre class="prettyprint source linenums"><code>function MUST_IMPLEMENT() {
+  throw new Error('This Interface method must be implemented.');
 }
 
 /**
- * Implements an {@link Explorer} Interface for an Esplora server.
+ * Class describing an Interface to communicate with a Hierarchical
+ * Deterministic Signer -HD Signer- (also known as Hierarchical
+ * Deterministic Wallet).
+ *
+ * Popular "Harwdare Wallets" such as Ledger Nanos or Trezors
+ * are, in fact, Hardware HD Signers, aka Hardware HD Wallets or simply Hardware
+ * Wallets.
+ *
+ * So far, this Interface has been implemented in {@link LedgerHDSigner} to
+ * communicate with a Ledger Nano. Also, in {@link SoftHDSigner} to communicate
+ * with a Software HD wallet that is created using a BIP39 word mnemonic.
+ *
+ * Devs adding new signing HD devices to farvault-lib must implement this class
+ * methods.
  */
-
-export class EsploraExplorer extends Explorer {
-  #url;
+export class HDSigner {
+  /**
+   * Initializes the HD interface.
+   *
+   * Call it before accessing any other method.
+   * @async
+   */
+  async init() {
+    MUST_IMPLEMENT();
+  }
 
   /**
+   * Returns the extended pub key of an initialized HDSigner.
+   *
+   * @async
    * @param {object} params
-   * @param {string} params.url Esplora's API url. Defaults to blockstream.info if `service = ESPLORA`.
+   * @param {number} params.purpose The purpose we want to transform to: LEGACY,
+   * NATIVE_SEGWIT or NESTED_SEGWIT.
+   * @param {number} params.accountNumber The account number as described in {@link https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki BIP44}.
+   * @param {object} [params.network=networks.bitcoin] A {@link module:networks.networks network}.
+   * @returns {Promise&lt;string>} An extended pub key. F.ex.: "xpub6D4BDPcP2GT577Vvch3R8wDkScZWzQzMMUm3PWbmWvVJrZwQY4VUNgqFJPMM3No2dFDFGTsxxpG5uJh7n7epu4trkrX7x7DogT5Uv6fcLW5".
    */
-  constructor({ url } = { url: ESPLORA_BLOCKSTREAM_URL }) {
-    super();
-    if (!isValidHttpUrl(url)) {
-      throw new Error(
-        'Specify a valid URL for Esplora and nothing else. Note that the url can include the port: http://api.example.com:8080/api'
-      );
-    }
-    this.#url = url;
+  getExtPub() {
+    MUST_IMPLEMENT();
   }
 
   /**
-   * Implements {@link Explorer#connect}.
+   * Creates an array of signer functions following this pattern:
+   *
+   * ```javascript
+   * async ({ psbt, utxos, network }) => [
+   *   hash_utxo_0 => await computeSignature(hash, psbt, utxos[0], network),
+   *   hash_utxo_1 => await computeSignature(hash, psbt, utxos[1], network),
+   *   ...,
+   *   hash_utxo_n => await computeSignature(hash, psbt, utxos[n], network),
+   * ];
+   * ```
+   * These signer functions can then be hooked into bitcoinjs-lib's [`signInput`](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/psbt.js) as the `sign` property in:
+   * `Psbt.signInput(index, {sign})`
+   *
+   * Pass all the utxos that will be signed. The psbt may have more utxos.
+   *
+   * Utxos must include:
+   * * `utxo.witnessScript` for P2WSH pr P2SH-P2WSH
+   * * `utxo.redeemScript` for P2SH.
+   *
+   * The `sequence` is obtained from the locking script in `witnessScript` and
+   * `redeemScript` by parsing the script and comparing it with the known
+   * scripts that this wallet software can spend.
+   *
+   * Also pass the psbt (still not finalized). Unlocking scripts may have
+   * not been set yet. Just the basic psbt that can be signed.
+   *
+   * Read some discussion about the motivation behind this function
+   * [here](https://github.com/bitcoinjs/bitcoinjs-lib/issues/1517#issuecomment-1064914601).
+   *
+   * @async
+   * @param {object} params
+   * @param {object} params.psbt The [bitcoinjs-lib Psbt object](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/src/psbt.js) where the `tx` to be signed will be extracted.
+   * @param {Object[]} params.utxos Array of spendable utxos controlled by this HDSigner. The function will create a signer for each utxo.
+   * @param {string} params.utxos[].path Derivation path of the key that must sign the hash. F.ex.: `44'/1'/1'/0/0`.
+   * @param {string} params.utxos[].tx The transaction serialized in hex.
+   * @param {number} params.utxos[].n The vout index of the tx above.
+   * @param {string} [params.utxos[].witnessScript] The witnessScript serialized in hex in case the utxo can be redeemed with an unlocking script (P2WSH or P2SH-P2WSH).
+   * @param {string} [params.utxos[].redeemScript] The redeemScript serialized in hex in case the utxo can be redeemed with an unlocking script (P2SH).
+   * @param {object} [params.network=networks.bitcoin] A {@link module:networks.networks network}.
+   * @returns {Promise&lt;function[]>} An array of functions, where each function corresponds to an utxo from the `utxos` input array.
    */
-  async connect() {}
-
-  /**
-   * Implements {@link Explorer#close}.
-   */
-  async close() {}
-
-  /**
-   * Implements {@link Explorer#fetchUtxos}.
-   */
-  async fetchUtxos(address) {
-    const utxos = [];
-    const fetchedUtxos = await esploraFetchJson(
-      `${this.#url}/address/${address}/utxo`
-    );
-
-    for (const utxo of fetchedUtxos) {
-      if (utxo.status.confirmed === true) {
-        const tx = await esploraFetchText(`${this.#url}/tx/${utxo.txid}/hex`);
-        utxos.push({ tx, n: parseInt(utxo.vout) });
-      }
-    }
-    return utxos;
+  createSigners() {
+    MUST_IMPLEMENT();
   }
 
   /**
-   * Implements {@link Explorer#fetchAddress}.
+   * Returns the public key of a path.
+   *
+   * @async
+   * @param {object} params
+   * @param {string} params.path The serialized derivation path.
+   * @param {object} [params.network=networks.bitcoin] A {@link module:networks.networks network}.
+   * @returns {Promise&lt;Buffer>} The public key.
    */
-  async fetchAddress(address) {
-    const chain_stats = (
-      await esploraFetchJson(`${this.#url}/address/${address}`)
-    )['chain_stats'];
-    return {
-      used: chain_stats['tx_count'] !== 0,
-      balance: chain_stats['funded_txo_sum'] - chain_stats['spent_txo_sum']
-    };
+  async getPublicKey() {
+    MUST_IMPLEMENT();
   }
 
   /**
-   * Implements {@link Explorer#fetchFeeEstimates}.
+   * Close the exchange with the Interface. Call it to release the interface.
+   * This is an optional method since not all HD signers need to be released.
+   *
+   * @async
    */
-  async fetchFeeEstimates() {
-    const feeEstimates = await esploraFetchJson(`${this.#url}/fee-estimates`);
-    checkFeeEstimates(feeEstimates);
-    return feeEstimates;
+  close() {
+    MUST_IMPLEMENT();
   }
 }
 </code></pre>

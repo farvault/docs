@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>src/explorer/esplora.js - Documentation</title>
+    <title>src/HDSigner/soft.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">src/explorer/esplora.js</h1>
+    <h1 class="page-title">src/HDSigner/soft.js</h1>
     
 
     
@@ -44,123 +44,126 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Implements the {@link Explorer} Interface for connecting to an Esplora
- * server.
- **/
+            <pre class="prettyprint source linenums"><code>import { HDSigner } from './interface';
+import { mnemonicToSeed } from 'bip39';
+import { networks, getNetworkId, getNetworkCoinType } from '../networks';
 
-import fetch from 'cross-fetch';
-import { checkFeeEstimates } from '../check';
+import { checkNetwork, checkPurpose, checkExtPub } from '../check';
+import memoize from 'lodash.memoize';
 
-import { ESPLORA_BLOCKSTREAM_URL } from '../constants';
+import {
+  deriveExtPub,
+  parseDerivationPath,
+  setExtPubPrefix,
+  fromSeed,
+  serializeDerivationPath
+} from '../bip44';
 
-import { Explorer } from './interface';
-
-async function esploraFetchJson(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    throw new Error('Invalid json format!');
-  }
-}
-
-async function esploraFetchText(...args) {
-  const response = await fetch(...args);
-  if (response.status !== 200) {
-    throw new Error('Service is down!');
-  }
-  try {
-    const text = await response.text();
-    return text;
-  } catch (error) {
-    throw new Error('Invalid text format!');
-  }
-}
-
-function isValidHttpUrl(string) {
-  let url;
-  try {
-    url = new URL(string);
-  } catch (_) {
-    return false;
-  }
-  return url.protocol === 'http:' || url.protocol === 'https:';
-}
+//Create the cache-key for memoize with the seed:
+const rootDerivePath = memoize(
+  (seed, root, path, network) => root.derivePath(path),
+  //The root directly depends from the seed and network:
+  (seed, root, path, network) =>
+    seed.toString() + '_' + path + '_' + getNetworkId(network)
+);
 
 /**
- * Implements an {@link Explorer} Interface for an Esplora server.
+ * Implements a {@link HDSigner} interface to a Software-based HD signer.
  */
-
-export class EsploraExplorer extends Explorer {
-  #url;
-
+export class SoftHDSigner extends HDSigner {
+  #mnemonic;
+  #seed;
   /**
    * @param {object} params
-   * @param {string} params.url Esplora's API url. Defaults to blockstream.info if `service = ESPLORA`.
+   * @param {string} params.mnemonic Space separated list of BIP39 words used as mnemonic.
    */
-  constructor({ url } = { url: ESPLORA_BLOCKSTREAM_URL }) {
+  constructor({ mnemonic }) {
     super();
-    if (!isValidHttpUrl(url)) {
-      throw new Error(
-        'Specify a valid URL for Esplora and nothing else. Note that the url can include the port: http://api.example.com:8080/api'
-      );
+    if (typeof mnemonic === 'undefined') {
+      console.log('WARNING: Using default mnemonic.');
+      this.#mnemonic =
+        'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about';
+    } else {
+      this.#mnemonic = mnemonic;
     }
-    this.#url = url;
-  }
 
-  /**
-   * Implements {@link Explorer#connect}.
-   */
-  async connect() {}
-
-  /**
-   * Implements {@link Explorer#close}.
-   */
-  async close() {}
-
-  /**
-   * Implements {@link Explorer#fetchUtxos}.
-   */
-  async fetchUtxos(address) {
-    const utxos = [];
-    const fetchedUtxos = await esploraFetchJson(
-      `${this.#url}/address/${address}/utxo`
-    );
-
-    for (const utxo of fetchedUtxos) {
-      if (utxo.status.confirmed === true) {
-        const tx = await esploraFetchText(`${this.#url}/tx/${utxo.txid}/hex`);
-        utxos.push({ tx, n: parseInt(utxo.vout) });
+    //Overwrite own method to allow memoization
+    this.getPublicKey = memoize(
+      this.getPublicKey,
+      (path, network = networks.bitcoin) => {
+        return path + getNetworkId(network);
       }
+    );
+  }
+
+  /**
+   * Implements {@link HDSigner#getPublicKey}.
+   */
+  async getPublicKey(path, network = networks.bitcoin) {
+    const { purpose, coinType, accountNumber, index, isChange } =
+      parseDerivationPath(path);
+    if (getNetworkCoinType(network) !== coinType) {
+      throw new Error('Network mismatch');
     }
-    return utxos;
+    const extPub = await this.getExtPub({
+      purpose,
+      accountNumber,
+      network
+    });
+    return deriveExtPub({ extPub, index, isChange, network });
   }
 
   /**
-   * Implements {@link Explorer#fetchAddress}.
+   * Implements {@link HDSigner#init}.
    */
-  async fetchAddress(address) {
-    const chain_stats = (
-      await esploraFetchJson(`${this.#url}/address/${address}`)
-    )['chain_stats'];
-    return {
-      used: chain_stats['tx_count'] !== 0,
-      balance: chain_stats['funded_txo_sum'] - chain_stats['spent_txo_sum']
-    };
+  async init() {
+    this.#seed = await mnemonicToSeed(this.#mnemonic);
   }
 
   /**
-   * Implements {@link Explorer#fetchFeeEstimates}.
+   * Implements {@link HDSigner#createSigners}.
    */
-  async fetchFeeEstimates() {
-    const feeEstimates = await esploraFetchJson(`${this.#url}/fee-estimates`);
-    checkFeeEstimates(feeEstimates);
-    return feeEstimates;
+  createSigners({ psbt, utxos, network = networks.bitcoin }) {
+    const root = fromSeed(this.#seed, network);
+    return utxos.map(utxo => $hash => {
+      const signature = rootDerivePath(
+        this.#seed,
+        root,
+        utxo.path,
+        network
+      ).sign($hash);
+      //console.log({signature: signature.toString('hex')});
+      return signature;
+    });
+  }
+
+  /**
+   * Implements {@link HDSigner#getExtPub}.
+   */
+  getExtPub({ purpose, accountNumber, network = networks.bitcoin }) {
+    //No need to memoize
+    checkPurpose(purpose);
+    checkNetwork(network);
+    if (!Number.isInteger(accountNumber) || accountNumber &lt; 0)
+      throw new Error('Invalid accountNumber');
+
+    const root = fromSeed(this.#seed, network);
+    const extPub = setExtPubPrefix({
+      extPub: root
+        .derivePath(
+          serializeDerivationPath({
+            purpose,
+            coinType: getNetworkCoinType(network),
+            accountNumber
+          })
+        )
+        .neutered()
+        .toBase58(),
+      purpose,
+      network
+    });
+    checkExtPub({ extPub, accountNumber, network });
+    return extPub;
   }
 }
 </code></pre>

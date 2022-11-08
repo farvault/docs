@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>src/HDSigner/ledger.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h2><a href="https://github.com/farvault/farvault-lib" target="_blank" class="menu-item" id="repository" >Farvault-lib Github repo</a></h2><h3>Classes</h3><ul><li><a href="Discovery.html">Discovery</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Discovery.html#fetch">fetch</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchAccount">fetchAccount</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#fetchUtxos">fetchUtxos</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getAccounts">getAccounts</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getFundedDerivationPaths">getFundedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getNetworkIds">getNetworkIds</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUsedDerivationPaths">getUsedDerivationPaths</a></li><li data-type='method' style='display: none;'><a href="Discovery.html#getUtxos">getUtxos</a></li></ul></li><li><a href="ElectrumExplorer.html">ElectrumExplorer</a><ul class='methods'><li data-type='method' style='display: none;'><a href="ElectrumExplorer.html#close">close</a></li><li data-type='method' style='display: none;'><a href="ElectrumExplorer.html#connect">connect</a></li><li data-type='method' style='display: none;'><a href="ElectrumExplorer.html#fetchAddress">fetchAddress</a></li><li data-type='method' style='display: none;'><a href="ElectrumExplorer.html#fetchFeeEstimates">fetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="ElectrumExplorer.html#fetchUtxos">fetchUtxos</a></li></ul></li><li><a href="EsploraExplorer.html">EsploraExplorer</a><ul class='methods'><li data-type='method' style='display: none;'><a href="EsploraExplorer.html#close">close</a></li><li data-type='method' style='display: none;'><a href="EsploraExplorer.html#connect">connect</a></li><li data-type='method' style='display: none;'><a href="EsploraExplorer.html#fetchAddress">fetchAddress</a></li><li data-type='method' style='display: none;'><a href="EsploraExplorer.html#fetchFeeEstimates">fetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="EsploraExplorer.html#fetchUtxos">fetchUtxos</a></li></ul></li><li><a href="Explorer.html">Explorer</a><ul class='methods'><li data-type='method' style='display: none;'><a href="Explorer.html#close">close</a></li><li data-type='method' style='display: none;'><a href="Explorer.html#connect">connect</a></li><li data-type='method' style='display: none;'><a href="Explorer.html#fetchAddress">fetchAddress</a></li><li data-type='method' style='display: none;'><a href="Explorer.html#fetchFeeEstimates">fetchFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="Explorer.html#fetchUtxos">fetchUtxos</a></li></ul></li><li><a href="HDSigner.html">HDSigner</a><ul class='methods'><li data-type='method' style='display: none;'><a href="HDSigner.html#close">close</a></li><li data-type='method' style='display: none;'><a href="HDSigner.html#createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="HDSigner.html#getExtPub">getExtPub</a></li><li data-type='method' style='display: none;'><a href="HDSigner.html#getPublicKey">getPublicKey</a></li><li data-type='method' style='display: none;'><a href="HDSigner.html#init">init</a></li></ul></li><li><a href="LedgerHDSigner.html">LedgerHDSigner</a><ul class='methods'><li data-type='method' style='display: none;'><a href="LedgerHDSigner.html#close">close</a></li><li data-type='method' style='display: none;'><a href="LedgerHDSigner.html#createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="LedgerHDSigner.html#getExtPub">getExtPub</a></li><li data-type='method' style='display: none;'><a href="LedgerHDSigner.html#getPublicKey">getPublicKey</a></li><li data-type='method' style='display: none;'><a href="LedgerHDSigner.html#init">init</a></li></ul></li><li><a href="SoftHDSigner.html">SoftHDSigner</a><ul class='methods'><li data-type='method' style='display: none;'><a href="SoftHDSigner.html#createSigners">createSigners</a></li><li data-type='method' style='display: none;'><a href="SoftHDSigner.html#getExtPub">getExtPub</a></li><li data-type='method' style='display: none;'><a href="SoftHDSigner.html#getPublicKey">getPublicKey</a></li><li data-type='method' style='display: none;'><a href="SoftHDSigner.html#init">init</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-bip44.html">bip44</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44.html#.deriveExtPub">deriveExtPub</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.fromSeed">fromSeed</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getDerivationPathAddress">getDerivationPathAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.getExtPubAddress">getExtPubAddress</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.parseDerivationPath">parseDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.serializeDerivationPath">serializeDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#.setExtPubPrefix">setExtPubPrefix</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubAccountNumber">getExtPubAccountNumber</a></li><li data-type='method' style='display: none;'><a href="module-bip44.html#~getExtPubPurpose">getExtPubPurpose</a></li></ul></li><li><a href="module-bip44_chain.html">bip44/chain</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#.getNextDerivationPath">getNextDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getDefaultAccount">getDefaultAccount</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~getLastDerivationPath">getLastDerivationPath</a></li><li data-type='method' style='display: none;'><a href="module-bip44_chain.html#~normalizeDerivationPaths">normalizeDerivationPaths</a></li></ul></li><li><a href="module-check.html">check</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-check.html#.checkAddress">checkAddress</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkExtPub">checkExtPub</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkFeeEstimates">checkFeeEstimates</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkNetwork">checkNetwork</a></li><li data-type='method' style='display: none;'><a href="module-check.html#.checkPurpose">checkPurpose</a></li></ul></li><li><a href="module-coinselect.html">coinselect</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-coinselect.html#.coinselect">coinselect</a></li></ul></li><li><a href="module-fees.html">fees</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-fees.html#.feeRateSampling">feeRateSampling</a></li><li data-type='method' style='display: none;'><a href="module-fees.html#.pickFeeEstimate">pickFeeEstimate</a></li></ul></li><li><a href="module-networks.html">networks</a><ul class='members'><li data-type='member' style='display: none;'><a href="module-networks.html#.networks">networks</a></li></ul><ul class='methods'><li data-type='method' style='display: none;'><a href="module-networks.html#.getNetworkCoinType">getNetworkCoinType</a></li></ul></li><li><a href="module-scripts.html">scripts</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-scripts.html#.createRelativeTimeLockScript">createRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.parseRelativeTimeLockScript">parseRelativeTimeLockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#.unlockScript">unlockScript</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~numberEncodeAsm">numberEncodeAsm</a></li><li data-type='method' style='display: none;'><a href="module-scripts.html#~scriptNumberDecode">scriptNumberDecode</a></li></ul></li><li><a href="module-test.html">test</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-test.html#.fundRegtest">fundRegtest</a></li></ul></li><li><a href="module-transactions.html">transactions</a><ul class='methods'><li data-type='method' style='display: none;'><a href="module-transactions.html#.createMultiFeeTransactions">createMultiFeeTransactions</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#.createTransaction">createTransaction</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~createPSBT">createPSBT</a></li><li data-type='method' style='display: none;'><a href="module-transactions.html#~witnessStackToScriptWitness">witnessStackToScriptWitness</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#createFixture">createFixture</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">src/HDSigner/ledger.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { HDSigner } from './interface';
+import LedgerTransport from '@ledgerhq/hw-transport-webusb';
+import LedgerTransportNodejs from '@ledgerhq/hw-transport-node-hid-noevents';
+import LedgerAppBtc from '@ledgerhq/hw-app-btc';
+import { NATIVE_SEGWIT, NESTED_SEGWIT, LEGACY } from '../constants';
+import { getNetworkId, getNetworkCoinType, networks } from '../networks';
+import memoize from 'lodash.memoize';
+export const WEB_TRANSPORT = 'WEB_TRANSPORT';
+export const NODEJS_TRANSPORT = 'NODEJS_TRANSPORT';
+import { unlockScript } from '../scripts';
+
+import { Transaction, payments, script } from 'bitcoinjs-lib';
+
+import { checkNetwork, checkPurpose, checkExtPub } from '../check';
+import {
+  setExtPubPrefix,
+  deriveExtPub,
+  parseDerivationPath,
+  serializeDerivationPath
+} from '../bip44';
+
+//https://github.com/LedgerHQ/ledgerjs/issues/122#issuecomment-568265915
+async function getApp(transport) {
+  var r = await transport.send(0xb0, 0x01, 0x00, 0x00);
+  var i = 0;
+  var format = r[i++];
+  var nameLength = r[i++];
+  var name = r.slice(i, (i += nameLength)).toString('ascii');
+  var versionLength = r[i++];
+  var version = r.slice(i, (i += versionLength)).toString('ascii');
+  var flagLength = r[i++];
+  var flags = r.slice(i, (i += flagLength));
+  return { name, version, flags };
+}
+
+/**
+ * Implements an {@link HDSigner} interface to a Ledger Nano device.
+ */
+export class LedgerHDSigner extends HDSigner {
+  #transport;
+  #ledgerTransport;
+  #ledgerAppBtc;
+  #ledgerAppBtc_instanceId;
+  #ledgerAppBtc_name;
+  #ledgerAppBtc_version;
+  #ledgerAppBtc_flags;
+
+  /**
+   * @param {object} params
+   * @param {string} params.transport Either `NODEJS_TRANSPORT` for use on
+   * the command line or `WEB_TRANSPORT` for use in a browser-based
+   * implementation.
+   */
+  constructor({ transport }) {
+    super();
+    if (transport !== WEB_TRANSPORT &amp;&amp; transport !== NODEJS_TRANSPORT) {
+      throw new Error('Invalid transport');
+    } else {
+      this.#transport = transport;
+    }
+
+    //Overwrite own method to allow memoization
+    this.getExtPub = memoize(
+      this.getExtPub,
+      //The memoize resolver: how to get a key from the params ->
+      ({ purpose, accountNumber, network = networks.bitcoin }) =>
+        this.#ledgerAppBtc_instanceId.toString() +
+        '_' +
+        purpose.toString() +
+        '_' +
+        accountNumber.toString() +
+        '_' +
+        getNetworkId(network)
+    );
+
+    //Overwrite own method to allow memoization
+    this.getPublicKey = memoize(
+      this.getPublicKey,
+      (path, network = networks.bitcoin) => {
+        return path + getNetworkId(network);
+      }
+    );
+  }
+
+  /**
+   * Implements {@link HDSigner#getPublicKey}.
+   */
+  async getPublicKey(path, network = networks.bitcoin) {
+    const { purpose, coinType, accountNumber, index, isChange } =
+      parseDerivationPath(path);
+    if (getNetworkCoinType(network) !== coinType) {
+      throw new Error('Network mismatch');
+    }
+    const extPub = await this.getExtPub({
+      purpose,
+      accountNumber,
+      network
+    });
+    return deriveExtPub({ extPub, index, isChange, network });
+  }
+
+  /**
+   * Implements {@link HDSigner#init}.
+   */
+  async init() {
+    try {
+      this.#ledgerTransport =
+        this.#transport === WEB_TRANSPORT
+          ? await LedgerTransport.create()
+          : await LedgerTransportNodejs.create();
+    } catch (error) {
+      if (error.id === 'NoDeviceFound') {
+        throw new Error(
+          'You must be plug in the Ledger Device into an USB port and enter the PIN code.'
+        );
+      } else {
+        throw new Error(error);
+      }
+    }
+    const { name, version, flags } = await getApp(this.#ledgerTransport);
+    if (name !== 'Bitcoin' &amp;&amp; name !== 'Bitcoin Test') {
+      throw new Error(
+        name === 'BOLOS'
+          ? 'You have correclty plugged in the Ledger device but you must open the Bitcoin App. Please open it and try again.'
+          : 'You have correclty plugged in the Ledger device but you must open the Bitcoin App. Please, close the ' +
+            name +
+            ' App, open Bitcoin and try again.'
+      );
+    }
+    this.#ledgerAppBtc = new LedgerAppBtc(this.#ledgerTransport);
+    this.#ledgerAppBtc_instanceId = Date.now();
+    this.#ledgerAppBtc_name = name;
+    this.#ledgerAppBtc_version = version;
+    this.#ledgerAppBtc_flags = flags;
+  }
+
+  /**
+   * Implements {@link HDSigner#getExtPub}.
+   */
+  async getExtPub({ purpose, accountNumber, network = networks.bitcoin }) {
+    checkPurpose(purpose);
+    checkNetwork(network);
+    if (!Number.isInteger(accountNumber) || accountNumber &lt; 0)
+      throw new Error('Invalid accountNumber');
+    if (
+      (network === networks.bitcoin &amp;&amp; this.#ledgerAppBtc_name !== 'Bitcoin') ||
+      ((network === networks.regtest || network === networks.testnet) &amp;&amp;
+        this.#ledgerAppBtc_name !== 'Bitcoin Test')
+    ) {
+      throw new Error(
+        "There is a mismatch between Ledger's App and the network requested."
+      );
+    }
+
+    const extPub = setExtPubPrefix({
+      extPub: await this.#ledgerAppBtc.getWalletXpub({
+        path: serializeDerivationPath({
+          purpose,
+          coinType: getNetworkCoinType(network),
+          accountNumber
+        }),
+        //Ledger only accepts xpub or tpub byte version for xpubVersion as in
+        //the original BIP32 implementation
+        //bitcoinjs-lib (network.bip32.public) also only references xpub or tpub
+        //for network = bitcoin, and network = testnet, respectively
+        //Read setExtPubPrefix documentation to understand why this is here.
+        //Note that network.bip32.public will be === constants.XPUBVERSION
+        //for mainnet and === constants.TPUBVERSION for testnet and regtest
+        xpubVersion: network.bip32.public
+      }),
+      purpose,
+      network
+    });
+    checkExtPub({ extPub, accountNumber, network });
+    return extPub;
+  }
+
+  /** Tries to obtain the lockTime from an utxo
+   *
+   * If the utxo has a witnessScript or redeemScript, then it parses the script
+   * and checks if this is a script we know how to spend (a relativeTimeLockScript
+   * for now)
+   *
+   * If this is a script that we know how to spend then it returns the appropriate
+   * sequence.
+   *
+   * Otherwise it returns `undefined`.
+   *
+   * @param {object} utxo An utxo like this: `{path, witnessScript}`
+   * @returns {number} A bip68 encoded sequence or `undefined`
+   *
+   */
+  async #getUtxoSequence(utxo, network) {
+    let sequence = undefined;
+    let script = undefined;
+    if (typeof utxo.witnessScript === 'string') {
+      script = utxo.witnessScript;
+    }
+    if (typeof utxo.redeemScript === 'string') {
+      if (typeof utxo.witnessScript === 'string') {
+        throw new Error(
+          'Cannot have redeemScript and witnessScript at the same time'
+        );
+      }
+      script = utxo.redeemScript;
+    }
+    if (typeof script !== 'undefined') {
+      const pubkey = await this.getPublicKey(utxo.path, network);
+      const unlockedScript = unlockScript({ script, pubkey });
+      if (unlockedScript === false) {
+        throw new Error('It is impossible to unlock this script');
+      }
+      sequence = unlockedScript.sequence;
+    }
+    return sequence;
+  }
+
+  /**
+   * Implements {@link HDSigner#createSigners}.
+   */
+  async createSigners({ psbt, utxos, network = networks.bitcoin }) {
+    checkNetwork(network);
+    if (
+      (network === networks.bitcoin &amp;&amp; this.#ledgerAppBtc_name !== 'Bitcoin') ||
+      ((network === networks.regtest || network === networks.testnet) &amp;&amp;
+        this.#ledgerAppBtc_name !== 'Bitcoin Test')
+    ) {
+      throw new Error(
+        "There is a mismatch between Ledger's App and the network requested."
+      );
+    }
+    const tx = psbt.__CACHE.__TX; //It's a private param. May change in future.
+
+    //See if any of the inputs is segwit. If an input is segwit then the tx
+    //is also segwit
+    const ledgerInputs = [];
+
+    const segwitInputTypes = [];
+
+    for (const utxo of utxos) {
+      if (typeof utxo.path === 'undefined') {
+        throw new Error('Must pass a path for signing an input');
+      }
+      if (utxo.witnessScript &amp;&amp; utxo.redeemScript) {
+        throw new Error(
+          'Either pass a single utxo.path for P2PKH, P2SH-P2WPKH, P2WPKH. \
+        Or utxo.path + utxo.witnessScript for P2WSH/P2SH-P2WSH. \
+        Or utxo.path +  utxo.redeemScript for Legacy P2SH.'
+        );
+      }
+      const purpose =
+        !utxo.witnessScript &amp;&amp;
+        !utxo.redeemScript &amp;&amp;
+        parseDerivationPath(utxo.path).purpose;
+
+      const sequence = await this.#getUtxoSequence(utxo, network);
+      let redeemScript;
+      if (purpose === NATIVE_SEGWIT || purpose === NESTED_SEGWIT) {
+        //The redeemScript for NESTED_SEGWIT and NATIVE_SEGWIT must be p2pkh
+        //for some reason?!?!?!?
+        //This has been thoroughly tested
+        const pubkey = await this.getPublicKey(utxo.path, network);
+        redeemScript = payments
+          .p2pkh({ pubkey, network })
+          .output.toString('hex');
+        segwitInputTypes.push(true);
+      } else if (purpose === LEGACY) {
+        redeemScript = undefined;
+        segwitInputTypes.push(false);
+      }
+      //Legacy P2SH (not P2SH-P2WSH)
+      else if (utxo.redeemScript) {
+        redeemScript = utxo.redeemScript;
+        segwitInputTypes.push(false);
+      }
+      //P2WSH or P2SH-P2WSH
+      else if (utxo.witnessScript) {
+        //Yeah, the redeemScript = witnessScript even for P2SH-P2WSH...
+        //This has been thoroughly tested
+        redeemScript = utxo.witnessScript;
+        segwitInputTypes.push(true);
+      } else {
+        throw new Error('redeemScript not implemented for this purpose');
+      }
+
+      ledgerInputs.push([
+        this.#ledgerAppBtc.splitTransaction(
+          utxo.tx,
+          Transaction.fromHex(utxo.tx).hasWitnesses()
+        ),
+        utxo.n,
+        ...(redeemScript ? [redeemScript] : []),
+        ...(sequence ? [sequence] : [])
+      ]);
+    }
+    const ledgerDerivationPaths = utxos.map(utxo => utxo.path);
+
+    const getLedgerTxSignatures = async isSegwit => {
+      const ledgerTx = this.#ledgerAppBtc.splitTransaction(
+        tx.toHex(),
+        isSegwit
+      );
+      const ledgerOutputScriptHex = this.#ledgerAppBtc
+        .serializeTransactionOutputs(ledgerTx)
+        .toString('hex');
+
+      const ledgerTxSignatures = await this.#ledgerAppBtc.signP2SHTransaction({
+        inputs: ledgerInputs,
+        associatedKeysets: ledgerDerivationPaths,
+        outputScriptHex: ledgerOutputScriptHex,
+        segwit: isSegwit,
+        transactionVersion: psbt.version
+      });
+      return ledgerTxSignatures;
+    };
+    let ledgerTxSignaturesSegwit, ledgerTxSignaturesLegacy;
+    //If one of the inputs was segwit we request the ledger device to sign a
+    //segwit tx as if all the utxos were segwit. This is a limitation with
+    //signP2SHTransaction. It forces to sign assuming everything is segwit/not seg.
+    //Later we will pair the correct signature with the correct utxo
+    if (segwitInputTypes.includes(true))
+      ledgerTxSignaturesSegwit = await getLedgerTxSignatures(true);
+    //If one of the inputs was NOT segwit we request the ledger device to sign a
+    //segwit tx as if all the utxos were NOT segwit.
+    if (segwitInputTypes.includes(false))
+      ledgerTxSignaturesLegacy = await getLedgerTxSignatures(false);
+
+    //This is were we match legacySignatures with legacy utxos and segwitSignatures
+    //with segwit utxos:
+    const ledgerTxSignatures = [];
+    for (let index = 0; index &lt; utxos.length; index++) {
+      ledgerTxSignatures.push(
+        segwitInputTypes[index]
+          ? ledgerTxSignaturesSegwit[index]
+          : ledgerTxSignaturesLegacy[index]
+      );
+    }
+
+    const signers = [];
+    for (let index = 0; index &lt; utxos.length; index++) {
+      const ledgerSignature = ledgerTxSignatures[index];
+      const encodedSignature = segwitInputTypes[index]
+        ? Buffer.from(ledgerSignature, 'hex')
+        : Buffer.concat([
+            Buffer.from(ledgerSignature, 'hex'),
+            Buffer.from('01', 'hex') // SIGHASH_ALL
+          ]);
+      const decoded = script.signature.decode(encodedSignature);
+      signers.push(hash => decoded.signature);
+    }
+    return signers;
+  }
+
+  /**
+   * Implements {@link HDSigner#close}.
+   */
+  async close() {
+    await this.#ledgerTransport.close();
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Tue Nov 08 2022 09:01:01 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+<script src="scripts/collapse.js" defer></script>
+
+
+</body>
+</html>
